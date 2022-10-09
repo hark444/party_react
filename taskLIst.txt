@@ -1,0 +1,10 @@
+To Do List
+
+- Integrate User Sign In POST request [PRDEV-001]
+- Learn and create Multiple Page Redirection (react router) [PRDEV-002]
+- Integrate User Create Token request [PRDEV-003]
+- Create Error Modal Message Box [PRDEV-004]
+
+Completed Tasks
+
+- Create boiler plate [main]
