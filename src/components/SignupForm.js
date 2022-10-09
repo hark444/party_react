@@ -33,13 +33,9 @@ export default function SignupForm() {
     }
 
     function setNames(username) {
-        console.log("inside setNames")
         const userName = signupForm.username.split(" ")
-        console.log(userName)
         const first_name = userName[0]
-        console.log(first_name)
         const last_name = userName.slice(1, ).join(" ")
-        console.log(last_name)
         setSignupForm(prevForm => {
             return {
                 ...prevForm,
@@ -60,7 +56,7 @@ export default function SignupForm() {
             }
         });
         const data = await response.json()
-        
+        // TODO: Convert this to success message
         console.log(data)
     }
 
@@ -68,9 +64,9 @@ export default function SignupForm() {
         event.preventDefault()
         if (!showError){
             createUser()
-            console.log("Create user API called....")
         }
         else {
+            // TODO: Convert this to error message
             console.log("Not submitting")
         }
     }
