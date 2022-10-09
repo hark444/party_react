@@ -47,6 +47,7 @@ export default function SignupForm() {
 
     async function createUser() {
         setNames(signupForm.username)
+        try {
         const response = await fetch('http://127.0.0.1:8002/api/v1/users/create', {
             method:'POST',
             body: JSON.stringify(signupForm),
@@ -55,10 +56,20 @@ export default function SignupForm() {
                 'Access-Control-Allow-Origin': '*'
             }
         });
+        if (!response.ok) {
+            throw new Error('Something went wrong')
+        }
+
         const data = await response.json()
         // TODO: Convert this to success message
         console.log(data)
+        }
+        catch (error) {
+            // Display this Error as well
+            console.log(error)
+        }
     }
+
 
     function handleSubmit(event) {
         event.preventDefault()
