@@ -1,0 +1,44 @@
+.sign_up_div {
+    border: 1px solid black;
+    margin-top: 40px;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 7px;
+}
+
+.sign_up_form {
+    margin: 40px;
+    margin-top: 15px;
+    display: grid;
+    gap: 10px;
+    padding: 30px;
+    text-align: left;
+}
+
+.sign_up_title {
+    margin-top: 15px;
+    text-align: center;
+    color: #3eb6cf;
+}
+
+input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 24px;
+}
+
+button {
+    height: 50px;
+    border: 1px solid gray;
+    border-radius: 25px;
+    background-color: #2a9bc9;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.form_error {
+    color: red;
+    /* display: none; */
+}
