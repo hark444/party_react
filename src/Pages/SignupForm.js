@@ -22,8 +22,8 @@ export default function SignupForm() {
                 [name]: value
             }
         })
-        if (name == "confirm_password") {
-            if (value != signupForm.password){
+        if (name === "confirm_password") {
+            if (value !== signupForm.password){
                 setShowError(true)
             }
             else {
