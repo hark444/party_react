@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import SignupForm from './Pages/SignupForm';
+import LoginPage from './Pages/LoginPage';
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 
@@ -11,10 +12,8 @@ function App() {
         <Route path="/sign-up">
           <SignupForm />
         </Route>
-        <Route path="login">
-          <div>
-            <h2>Login Page</h2>
-          </div>
+        <Route path="/login">
+          <LoginPage />
         </Route>
       </Switch>
     </div>
