@@ -1,14 +1,15 @@
 To Do List
 
-- Learn and create Multiple Page Redirection (react router) [PRDEV-002]
 - Integrate User Create Token request [PRDEV-003]
 - Create Error Modal Message Box [PRDEV-004]
 - Create a Login Page [PRDEV-005]
 - Integrate login/signup flow [PRDEV-006]
 - Create User Home Page [PRDEV-007]
 - Create a 404 Not Found Component [PRDEV-008]
+- Create a way to store all constants [PRDEV-009]
 
 Completed Tasks
 
 - Create boiler plate [main]
 - Integrate User Sign In POST request [PRDEV-001]
+- Learn and create Multiple Page Redirection (react router) [PRDEV-002]
