@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 export default function LoginPage() {
 
@@ -6,6 +7,8 @@ export default function LoginPage() {
         email: "",
         password: ""
     })
+
+    const history = useHistory()
 
 
     function handleChange(event) {
@@ -35,6 +38,7 @@ export default function LoginPage() {
         const data = await response.json()
         // TODO: Convert this to success message
         sessionStorage.setItem('access_token', data.access_token)
+        history.push('/home')
         }
         catch (error) {
             // Display this Error as well
