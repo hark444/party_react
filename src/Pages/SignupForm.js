@@ -1,5 +1,6 @@
 import React from "react";
 import "./SignupForm.css"
+import { Link } from "react-router-dom"
 
 export default function SignupForm() {
     
@@ -106,6 +107,7 @@ export default function SignupForm() {
                 <br />
                 <button>Signup</button>
             </form>
+            <p className="not_sign_up">Already signed up? Log in <Link to={'/login'}>here</Link>. </p>
         </div>
     )
 }

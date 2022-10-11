@@ -2,7 +2,6 @@ To Do List
 
 - Create Error Modal Message Box [PRDEV-004]
 - Integrate login/signup flow [PRDEV-006]
-- Create User Home Page [PRDEV-007]
 - Create a 404 Not Found Component [PRDEV-008]
 - Create a way to store all constants [PRDEV-009]
 - Find a better way to store all CSS files [PRDEV-010]
@@ -15,3 +14,4 @@ Completed Tasks
 - Learn and create Multiple Page Redirection (react router) [PRDEV-002]
 - Integrate User Create Token request [PRDEV-003]
 - Create a Login Page [PRDEV-005]
+- Create User Home Page [PRDEV-007]

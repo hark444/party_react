@@ -41,3 +41,7 @@ button {
 .form_error {
     color: red;
 }
+
+.not_sign_up {
+    margin-left: 25%;
+}

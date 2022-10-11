@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 export default function LoginPage() {
 
@@ -68,6 +68,7 @@ export default function LoginPage() {
                 
                 <button>Login</button>
             </form>
+            <p className="not_sign_up">Not signed up? Sign up <Link to={'/sign-up'}>here</Link>. </p>
         </div>
     )
 }
