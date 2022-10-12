@@ -1,11 +1,12 @@
 To Do List
 
 - Create Error Modal Message Box [PRDEV-004]
-- Integrate login/signup flow [PRDEV-006]
 - Create a 404 Not Found Component [PRDEV-008]
 - Create a way to store all constants [PRDEV-009]
 - Find a better way to store all CSS files [PRDEV-010]
 - Create a common way to handle all errors while making fetch requests [PRDEV-011]
+- Design and create a Header Component containing user DP, logout, Parties Given 
+    and Parties Attended navs[PRDEV-012]
 
 Completed Tasks
 
@@ -15,3 +16,4 @@ Completed Tasks
 - Integrate User Create Token request [PRDEV-003]
 - Create a Login Page [PRDEV-005]
 - Create User Home Page [PRDEV-007]
+- Integrate login/signup flow [PRDEV-006]
