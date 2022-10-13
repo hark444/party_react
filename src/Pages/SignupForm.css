@@ -27,7 +27,7 @@ input {
     height: 24px;
 }
 
-button {
+signup-button {
     height: 50px;
     border: 1px solid gray;
     border-radius: 25px;

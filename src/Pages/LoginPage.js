@@ -1,11 +1,17 @@
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
+import { ErrorModal } from "../Modal/Error";
 
 export default function LoginPage() {
 
     const [login, setLogin] = React.useState({
         email: "",
         password: ""
+    })
+    
+    const [showModalError, setShowModalError] = React.useState({
+        error: false,
+        message: ""
     })
 
     const history = useHistory()
@@ -28,11 +34,17 @@ export default function LoginPage() {
             body: JSON.stringify(login),
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
             }
         });
         if (!response.ok) {
-            throw new Error('Something went wrong')
+            let errorString;
+            if (response.status == 401) {
+                errorString = "User is unauthorized"
+            }
+            else {
+                errorString = "Response status: " + response.status.toString()
+            }
+            throw new Error(errorString)
         }
 
         const data = await response.json()
@@ -41,34 +53,47 @@ export default function LoginPage() {
         history.push('/home')
         }
         catch (error) {
-            // Display this Error as well
-            console.log(error)
+            setShowModalError({
+                    error: true,
+                    message: error
+                })
         }
     }
 
     function handleSubmit(event) {
         event.preventDefault()
-        // console.log(login)
         loginUser()
     }
 
+    function toggleModalShow() {
+        setShowModalError({
+            error: false,
+            message: ""
+        })
+    }
+
     return (
-        <div className="sign_up_div">
-            <div className="sign_up_title">
-                <h2>Login</h2>
+        <div>
+            <div className="sign_up_div">
+                <div className="sign_up_title">
+                    <h2>Login</h2>
+                </div>
+                <form onSubmit={handleSubmit} className="sign_up_form">
+                    
+                    <label htmlFor="email">Email </label>
+                    <input id="email" name="email" value={login.email} onChange={handleChange} />
+                    <br />
+                    <label htmlFor="password">Password </label>
+                    <input id="password" name="password" value={login.password} onChange={handleChange} />
+                    <br />
+                    
+                    <button>Login</button>
+                </form>
+                <p className="not_sign_up">Not signed up? Sign up <Link to={'/sign-up'}>here</Link>. </p>
             </div>
-            <form onSubmit={handleSubmit} className="sign_up_form">
-                
-                <label htmlFor="email">Email </label>
-                <input id="email" name="email" value={login.email} onChange={handleChange} />
-                <br />
-                <label htmlFor="password">Password </label>
-                <input id="password" name="password" value={login.password} onChange={handleChange} />
-                <br />
-                
-                <button>Login</button>
-            </form>
-            <p className="not_sign_up">Not signed up? Sign up <Link to={'/sign-up'}>here</Link>. </p>
+            <div className="error-modal">
+            <ErrorModal error={showModalError.error} onClose={toggleModalShow} message={showModalError.message}/>
+            </div>
         </div>
     )
 }
