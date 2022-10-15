@@ -8,7 +8,10 @@ To Do List
 - Design and create a Header Component containing user DP, logout, Parties Given 
     and Parties Attended navs[PRDEV-012]
 - Improve Modal designs and try to keet modal designs common [PRDEV-013]
-- Design User Page [PRDEV-014]
+- Create User Page [PRDEV-015]
+- Integrate User Page with define-api [PRDEV-016]
+- Create a vertical Nav Bar [PRDEV-017]
+- Create a way to keep Navbar fixed for all pages [PRDEV-017]
 
 Completed Tasks
 
@@ -20,3 +23,4 @@ Completed Tasks
 - Create User Home Page [PRDEV-007]
 - Integrate login/signup flow [PRDEV-006]
 - Create Error Modal Message Box [PRDEV-004]
+- Design User Page with Vertical NavBar [PRDEV-014]

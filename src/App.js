@@ -2,6 +2,7 @@ import Header from './components/Header';
 import SignupForm from './Pages/SignupForm';
 import LoginPage from './Pages/LoginPage';
 import HomePage from './Pages/HomePage';
+import User from './Pages/User';
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/home">
           <HomePage />
+        </Route>
+        <Route path="/user">
+          <User />
         </Route>
       </Switch>
     </div>
