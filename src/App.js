@@ -1,4 +1,5 @@
 import Header from './components/Header';
+import NavBar from './components/NavBar';
 import SignupForm from './Pages/SignupForm';
 import LoginPage from './Pages/LoginPage';
 import HomePage from './Pages/HomePage';
@@ -10,20 +11,23 @@ function App() {
   return (
     <div>
       <Header />
-      <Switch>
-        <Route path="/sign-up">
-          <SignupForm />
-        </Route>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/home">
-          <HomePage />
-        </Route>
-        <Route path="/user">
-          <User />
-        </Route>
-      </Switch>
+      <div className='main_body'>
+        <NavBar />
+        <Switch>
+          <Route path="/sign-up">
+            <SignupForm />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/home">
+            <HomePage />
+          </Route>
+          <Route path="/user">
+            <User />
+          </Route>
+        </Switch>
+      </div>
     </div>
   );
 }
