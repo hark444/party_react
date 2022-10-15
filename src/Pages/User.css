@@ -1,0 +1,32 @@
+.user {
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-top: 100px;
+}
+
+.card {
+    display: flex;
+    padding: 10px;
+    margin: 45px;
+    width: 33%;
+    border-radius: 5%;
+    flex-direction: column;
+    background-color: rgb(243, 239, 239);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile {
+    align-self: center;
+    margin: 10px;
+}
+
+.profile--picture {
+    height: 350px;
+    width: 350px;
+    border-radius: 10%;
+}
+
+.profile--content{
+    align-self: center;
+    font-size: 24px;
+}
