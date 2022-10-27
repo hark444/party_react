@@ -2,6 +2,7 @@ import React from "react";
 import "./SignupForm.css"
 import { ErrorModal } from "../Modal/Error";
 import { Link } from "react-router-dom"
+import * as urlConstants from "../constants/urls";
 
 export default function SignupForm() {
     
@@ -54,7 +55,7 @@ export default function SignupForm() {
     async function createUser() {
         setNames(signupForm.username)
         try {
-        const response = await fetch('http://127.0.0.1:8002/api/v1/users/create', {
+        const response = await fetch(urlConstants.USER_CREATE, {
             method:'POST',
             body: JSON.stringify(signupForm),
             headers: {
