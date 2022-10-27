@@ -15,6 +15,9 @@ export default function Header() {
                     <ol>Contact Us</ol>
                 </ul>
             </div>
+            <div className="header_user">
+                <p>Dummy User</p>
+            </div>
         </div>
     )
 }

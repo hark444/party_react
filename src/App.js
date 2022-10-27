@@ -11,7 +11,6 @@ function App() {
     <div>
       <Header />
       <div className='main_body'>
-        {/* <NavBar /> */}
         <Switch>
           <Route path="/sign-up">
             <SignupForm />
