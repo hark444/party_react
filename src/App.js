@@ -1,5 +1,4 @@
 import Header from './components/Header';
-import NavBar from './components/NavBar';
 import SignupForm from './Pages/SignupForm';
 import LoginPage from './Pages/LoginPage';
 import HomePage from './Pages/HomePage';
@@ -12,7 +11,7 @@ function App() {
     <div>
       <Header />
       <div className='main_body'>
-        <NavBar />
+        {/* <NavBar /> */}
         <Switch>
           <Route path="/sign-up">
             <SignupForm />
