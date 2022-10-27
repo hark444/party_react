@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
 import { ErrorModal } from "../Modal/Error";
+import * as urlConstants from "../constants/urls";
 
 export default function LoginPage() {
 
@@ -29,7 +30,7 @@ export default function LoginPage() {
 
     async function loginUser() {
         try {
-        const response = await fetch('http://127.0.0.1:8002/api/v1/auth/token', {
+        const response = await fetch(urlConstants.AUTH_TOKEN_GENERATE, {
             method:'POST',
             body: JSON.stringify(login),
             headers: {
