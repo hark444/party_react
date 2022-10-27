@@ -1,7 +1,28 @@
+.header {
+    display: flex;
+    margin: 5px;
+    height: 66px;
+    border: 1px solid black;
+}
+
+
 .header_title {
+    flex-basis: 20%;
     margin: 15px;
-    margin-left: 35%;
     font-weight: 600;
-    font-size: 48px;
+    font-size: 34px;
     color: #2a9bc9;
+    align-self: center;
+}
+
+.nav_bar {
+    flex-basis: 65%;
+    margin: 15px;
+    color: #2a9bc9;
+    font-size: 18px;
+    align-self: center;
+}
+
+.nav_bar > ul{
+    display: flex;
 }

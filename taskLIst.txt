@@ -9,8 +9,6 @@ To Do List
     and Parties Attended navs[PRDEV-012]
 - Improve Modal designs and try to keet modal designs common [PRDEV-013]
 - Integrate User Page with define-api [PRDEV-016]
-- Create a way to keep Navbar fixed for all pages [PRDEV-017]
-- Fix all other pages impacted by NavBar [PRDEV-018]
 
 Completed Tasks
 
@@ -25,3 +23,6 @@ Completed Tasks
 - Design User Page with Vertical NavBar [PRDEV-014]
 - Create User Page [PRDEV-015]
 - Create a vertical Nav Bar [PRDEV-017]
+- Create a way to keep Navbar fixed for all pages [PRDEV-017]
+- Change the NavBar design and stick it with the title bar [PRDEV-018]
+- Fix all other pages impacted by NavBar [PRDEV-019]
