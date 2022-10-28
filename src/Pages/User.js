@@ -16,7 +16,8 @@ export default function User() {
 
     const [showModalError, setShowModalError] = useState({
         error: false,
-        message: ""
+        message: "",
+        header: "User Error"
     })
 
     useEffect(() => {
@@ -24,10 +25,15 @@ export default function User() {
             defineMe();
         }
         else {
-            setShowModalError({
-                error: true,
-                message: "User not logged in"
+            console.log("user not logged in")
+            setShowModalError((prevError) => {
+                return {
+                    ...prevError,
+                    error: true,
+                    message: "User not logged in"
+                } 
             })
+            console.log(showModalError)
         }
     }, [])
 
@@ -66,17 +72,23 @@ export default function User() {
             setUserState(data)
             }
             catch (error) {
-                setShowModalError({
+                setShowModalError((prevError) => {
+                    return {
+                        ...prevError,
                         error: true,
-                        message: error
-                    })
+                        message: ""
+                    } 
+                })
             }
     }
 
     function toggleModalShow() {
-        setShowModalError({
-            error: false,
-            message: ""
+        setShowModalError((prevError) => {
+            return {
+                ...prevError,
+                error: false,
+                message: ""
+            } 
         })
     }
 
@@ -98,7 +110,10 @@ export default function User() {
             </div>
         </div>
         <div className="error-modal">
-            <ErrorModal error={showModalError.error} onClose={toggleModalShow} message={showModalError.message}/>
+            <ErrorModal error={showModalError.error}
+                        onClose={toggleModalShow}
+                        message={showModalError.message}
+                        header={showModalError.header}/>
         </div>
         </Fragment>
     )
