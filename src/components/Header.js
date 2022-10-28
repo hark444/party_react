@@ -1,8 +1,16 @@
-import React from "react";
-import {Link, NavLink} from "react-router-dom"
+import { React, useState } from "react";
+import {NavLink} from "react-router-dom"
 import "./Header.css"
+import { ReactSession } from 'react-client-session';
 
 export default function Header() {
+
+    const [username, setUsername] = useState("User")
+
+    if (ReactSession.get("username")) {
+        setUsername(ReactSession.get("username"))
+    }
+
     return (
         <div className="header">
             <h1 className="header_title">Party Counter App</h1>
@@ -17,7 +25,9 @@ export default function Header() {
                 </ul>
             </div>
             <div className="header_user">
-                <NavLink className="clean_links" activeClassName="active_clean_links" to="/user">Dummy User</NavLink>
+                <NavLink className="clean_links" activeClassName="active_clean_links" to="/user">
+                    Hi {username}
+                </NavLink>
             </div>
         </div>
     )

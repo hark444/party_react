@@ -5,8 +5,12 @@ import HomePage from './Pages/HomePage';
 import User from './Pages/User';
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
+import { ReactSession } from 'react-client-session';
 
 function App() {
+
+  ReactSession.setStoreType("sessionStorage");
+
   return (
     <div>
       <Header />

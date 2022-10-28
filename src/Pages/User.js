@@ -2,6 +2,7 @@ import { React, useEffect, useState, Fragment } from "react";
 import "./User.css"
 import { ErrorModal } from "../Modal/Error";
 import * as urlConstants from "../constants/urls";
+import { ReactSession } from 'react-client-session';
 
 export default function User() {
 
@@ -25,7 +26,6 @@ export default function User() {
             defineMe();
         }
         else {
-            console.log("user not logged in")
             setShowModalError((prevError) => {
                 return {
                     ...prevError,
@@ -33,7 +33,7 @@ export default function User() {
                     message: "User not logged in"
                 } 
             })
-            console.log(showModalError)
+            ReactSession.set("username", "")
         }
     }, [])
 
@@ -59,7 +59,7 @@ export default function User() {
             });
             if (!response.ok) {
                 let errorString;
-                if (response.status == 401) {
+                if (response.status === 401) {
                     errorString = "User is unauthorized"
                 }
                 else {
