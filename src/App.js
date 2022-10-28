@@ -5,22 +5,26 @@ import HomePage from './Pages/HomePage';
 import User from './Pages/User';
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
-import { ReactSession } from 'react-client-session';
+import {useState} from "react"
 
 function App() {
+  
+  const [username, setUsername] = useState("User")
 
-  ReactSession.setStoreType("sessionStorage");
+  function setUserName(userName){
+    setUsername(userName)
+  }
 
   return (
     <div>
-      <Header />
+      <Header username={username}/>
       <div className='main_body'>
         <Switch>
           <Route path="/sign-up">
             <SignupForm />
           </Route>
           <Route path="/login">
-            <LoginPage />
+            <LoginPage setName={setUserName} />
           </Route>
           <Route path="/home">
             <HomePage />
