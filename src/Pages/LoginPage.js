@@ -2,6 +2,8 @@ import React from "react";
 import { useHistory, Link } from "react-router-dom";
 import { ErrorModal } from "../Modal/Error";
 import * as urlConstants from "../constants/urls";
+import { ReactSession } from 'react-client-session';
+
 
 export default function LoginPage() {
 
@@ -40,7 +42,7 @@ export default function LoginPage() {
         });
         if (!response.ok) {
             let errorString;
-            if (response.status == 401) {
+            if (response.status === 401) {
                 errorString = "User is unauthorized"
             }
             else {
@@ -52,6 +54,7 @@ export default function LoginPage() {
         const data = await response.json()
         // TODO: Convert this to success message
         sessionStorage.setItem('access_token', data.access_token)
+        ReactSession.set("username", data.username);
         history.push('/home')
         }
         catch (error) {

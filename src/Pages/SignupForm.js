@@ -65,7 +65,7 @@ export default function SignupForm() {
         });
         if (!response.ok) {
             let errorString;
-            if (response.status == 401) {
+            if (response.status === 401) {
                 errorString = "User is unauthorized"
             }
             else {
