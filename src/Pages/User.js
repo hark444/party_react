@@ -3,8 +3,11 @@ import "./User.css"
 import { ErrorModal } from "../Modal/Error";
 import * as urlConstants from "../constants/urls";
 import { ReactSession } from 'react-client-session';
+import {useHistory} from "react-router-dom"
 
 export default function User() {
+
+    const history = useHistory();
 
     const [user, setUser] = useState({
         firstName: "",
@@ -30,7 +33,7 @@ export default function User() {
                 return {
                     ...prevError,
                     error: true,
-                    message: "User not logged in"
+                    message: "User not logged in. Redirecting to login page"
                 } 
             })
             ReactSession.set("username", "")
@@ -76,7 +79,7 @@ export default function User() {
                     return {
                         ...prevError,
                         error: true,
-                        message: ""
+                        message: error
                     } 
                 })
             }
@@ -90,6 +93,7 @@ export default function User() {
                 message: ""
             } 
         })
+        history.push("/login")
     }
 
 
