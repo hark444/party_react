@@ -5,7 +5,7 @@ import * as urlConstants from "../constants/urls";
 import { ReactSession } from 'react-client-session';
 
 
-export default function LoginPage() {
+export default function LoginPage(props) {
 
     const [login, setLogin] = React.useState({
         email: "",
@@ -54,6 +54,7 @@ export default function LoginPage() {
         const data = await response.json()
         sessionStorage.setItem('access_token', data.access_token)
         ReactSession.set("username", data.username);
+        props.setName(data.username);
         history.push('/home')
         }
         catch (error) {

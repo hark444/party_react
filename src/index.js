@@ -4,7 +4,10 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ReactSession } from 'react-client-session';
 
+ReactSession.setStoreType("sessionStorage");
+ReactSession.set("username", "User");
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<BrowserRouter><App /></BrowserRouter>);
 
