@@ -1,4 +1,5 @@
 import React from "react";
+import {Link, NavLink} from "react-router-dom"
 import "./Header.css"
 
 export default function Header() {
@@ -7,7 +8,7 @@ export default function Header() {
             <h1 className="header_title">Party Counter App</h1>
             <div className="nav_bar">
                 <ul>
-                    <ol>Home</ol>
+                    <ol><NavLink className="clean_links" activeClassName="active_clean_links" to="/home">Home</NavLink></ol>
                     <ol>Create Party</ol>
                     <ol>Parties Given</ol>
                     <ol>Parties Attended</ol>
@@ -16,7 +17,7 @@ export default function Header() {
                 </ul>
             </div>
             <div className="header_user">
-                <p>Dummy User</p>
+                <NavLink className="clean_links" activeClassName="active_clean_links" to="/user">Dummy User</NavLink>
             </div>
         </div>
     )
