@@ -52,7 +52,6 @@ export default function LoginPage() {
         }
 
         const data = await response.json()
-        // TODO: Convert this to success message
         sessionStorage.setItem('access_token', data.access_token)
         ReactSession.set("username", data.username);
         history.push('/home')
