@@ -18,7 +18,8 @@ export default function SignupForm() {
     const [showError, setShowError] = React.useState(false)
     const [showModalError, setShowModalError] = React.useState({
         error: false,
-        message: ""
+        message: "",
+        header: "Signup Error"
     })
 
     function handleChange(event) {
@@ -79,9 +80,12 @@ export default function SignupForm() {
         }
         catch (error) {
             console.log(error)
-            setShowModalError({
-                error: true,
-                message: error
+            setShowModalError((prevError) => {
+                return {
+                    ...prevError,
+                    error: true,
+                    message: error
+                } 
             })
         }
     }
@@ -99,9 +103,12 @@ export default function SignupForm() {
     }
 
     function toggleModalShow() {
-        setShowModalError({
-            error: false,
-            message: ""
+        setShowModalError((prevError) => {
+            return {
+                ...prevError,
+                error: false,
+                message: ""
+            } 
         })
     }
 
@@ -133,7 +140,10 @@ export default function SignupForm() {
                 <p className="not_sign_up">Already signed up? Log in <Link to={'/login'}>here</Link>. </p>
             </div>
         <div className="error-modal">
-            <ErrorModal error={showModalError.error} onClose={toggleModalShow} message={showModalError.message}/>
+            <ErrorModal error={showModalError.error}
+                onClose={toggleModalShow}
+                message={showModalError.message}
+                header={showModalError.header}/>
         </div>
         </div>
     )

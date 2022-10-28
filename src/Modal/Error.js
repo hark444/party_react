@@ -11,7 +11,7 @@ export function ErrorModal(props) {
         <div className="modal">
             <div className="modal-content">
                 <div className="modal-header">
-                    <h4 className="modal-title">Modal Header</h4>
+                    <h4 className="modal-title">{props.header}</h4>
                 </div>
                 <div className="modal-body">
                     {props.message.toString()}

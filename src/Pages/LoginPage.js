@@ -12,7 +12,8 @@ export default function LoginPage() {
     
     const [showModalError, setShowModalError] = React.useState({
         error: false,
-        message: ""
+        message: "",
+        header: "Login Error"
     })
 
     const history = useHistory()
@@ -54,10 +55,13 @@ export default function LoginPage() {
         history.push('/home')
         }
         catch (error) {
-            setShowModalError({
+            setShowModalError((prevError) => {
+                return {
+                    ...prevError,
                     error: true,
                     message: error
-                })
+                } 
+            })
         }
     }
 
@@ -67,9 +71,12 @@ export default function LoginPage() {
     }
 
     function toggleModalShow() {
-        setShowModalError({
-            error: false,
-            message: ""
+        setShowModalError((prevError) => {
+            return {
+                ...prevError,
+                error: false,
+                message: ""
+            } 
         })
     }
 
@@ -93,7 +100,10 @@ export default function LoginPage() {
                 <p className="not_sign_up">Not signed up? Sign up <Link to={'/sign-up'}>here</Link>. </p>
             </div>
             <div className="error-modal">
-            <ErrorModal error={showModalError.error} onClose={toggleModalShow} message={showModalError.message}/>
+            <ErrorModal error={showModalError.error}
+                onClose={toggleModalShow}
+                message={showModalError.message}
+                header={showModalError.header}/>
             </div>
         </div>
     )
