@@ -1,14 +1,13 @@
 To Do List
 
-
 - Create a 404 Not Found Component [PRDEV-008]
 - Create a way to store all constants [PRDEV-009]
 - Find a better way to store all CSS files [PRDEV-010]
 - Create a common way to handle all errors while making fetch requests [PRDEV-011]
 - Improve Modal designs and try to keet modal designs common [PRDEV-013]
-- Integrate User Page with define-api [PRDEV-016]
 - Integrate User Icon and active user status with the header [PRDEV-020]
 - Fix the User Page designs after fixing the navbar and header [PRDEV-021]
+
 
 Completed Tasks
 
@@ -28,3 +27,4 @@ Completed Tasks
 - Fix all other pages impacted by NavBar [PRDEV-019]
 - Design and create a Header Component containing user DP, logout, Parties Given 
     and Parties Attended navs[PRDEV-012]
+- Integrate User Page with define-api [PRDEV-016]
