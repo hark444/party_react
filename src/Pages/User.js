@@ -3,7 +3,7 @@ import "./User.css"
 import { ErrorModal } from "../Modal/Error";
 import * as urlConstants from "../constants/urls";
 import { ReactSession } from 'react-client-session';
-import {useHistory} from "react-router-dom"
+import { useHistory, NavLink } from "react-router-dom"
 
 export default function User() {
 
@@ -112,6 +112,9 @@ export default function User() {
                 <p><b>Role: </b>{user.role}</p>
                 <p><b>Date of Joining: </b>{user.date_of_joining}</p>
             </div>
+        </div>
+        <div className="signup-button user_update">
+            <NavLink to="/user-update" className="clean_links_button">Update Profile</NavLink>
         </div>
         <div className="error-modal">
             <ErrorModal error={showModalError.error}

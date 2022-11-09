@@ -2,3 +2,25 @@
     margin: 20px;
     padding: 10px;
 }
+
+.clean_links_button {
+    text-decoration: none;
+    color: white;
+    display: grid;
+    align-items: center;
+    height: 50px;
+}
+
+.active_clean_links_button {
+    color: #014763;
+}
+
+.clean_links {
+    text-decoration: none;
+    color: #2a9bc9;
+    text-align: center;
+}
+
+.active_clean_links {
+    color: #014763;
+}
