@@ -31,12 +31,3 @@
     align-self: center;
     text-align: center;
 }
-
-.clean_links {
-    text-decoration: none;
-    color: #2a9bc9;
-}
-
-.active_clean_links {
-    color: #014763;
-}

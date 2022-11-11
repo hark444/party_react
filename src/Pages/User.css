@@ -29,3 +29,10 @@
     align-self: center;
     font-size: 18px;
 }
+
+.user_update {
+    width: 150px;
+    margin: 24px; 
+    margin-left: 40%;
+    text-align: center;  
+}
