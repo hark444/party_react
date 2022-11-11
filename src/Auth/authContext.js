@@ -2,9 +2,11 @@ import React from "react";
 import * as urlConstants from "../constants/urls";
 import { ErrorModal } from "../Modal/Error";
 
+
 const AuthContext = React.createContext({
     isLoggedIn: false,
     onLogin: (login) => {},
+    username: '',
 })
 
 export const AuthContextProvider = (props) => {
@@ -14,8 +16,17 @@ export const AuthContextProvider = (props) => {
         message: "",
         header: "Authentication Error"
     })
+    const [userName, setUserName] = React.useState('User')
 
-    async function loginHandler(login) {
+    function loginHandler(login) {
+        token_generate(login).then((user) => {
+            sessionStorage.setItem('access_token', user.access_token)
+            setIsLoggedIn(true);
+            setUserName(user.username);
+        })
+    }
+
+    async function token_generate(login) {
         try {
             const response = await fetch(urlConstants.AUTH_TOKEN_GENERATE, {
                 method:'POST',
@@ -36,9 +47,7 @@ export const AuthContextProvider = (props) => {
             }
     
             const data = await response.json()
-            sessionStorage.setItem('access_token', data.access_token)
-            setIsLoggedIn(true);
-            window.location.assign('/home');
+            return data
         }
         catch (error) {
             setIsLoggedIn(false);
@@ -60,11 +69,17 @@ export const AuthContextProvider = (props) => {
                 message: ""
             } 
         })
+        window.location.assign('/login')
     }
+
+    // if (!isLoggedIn) {
+    //     window.location.assign('/login');
+    // }
 
     return <AuthContext.Provider value={{
         isLoggedIn: isLoggedIn,
-        onLogin: loginHandler
+        onLogin: loginHandler,
+        username: userName,
     }}>
         {props.children}
         <div className="error-modal">

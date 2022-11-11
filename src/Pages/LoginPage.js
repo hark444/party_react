@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../Auth/authContext";
 
 
-export default function LoginPage(props) {
+export default function LoginPage() {
 
     const ctx = React.useContext(AuthContext);
+
+    const history = useHistory();
     
     const [login, setLogin] = React.useState({
         email: "",
@@ -24,7 +26,9 @@ export default function LoginPage(props) {
 
     function handleSubmit(event) {
         event.preventDefault()
+        sessionStorage.removeItem('access_token')
         ctx.onLogin(login);
+        history.push('/home');
     }
 
     return (
