@@ -1,25 +1,16 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
-import { ErrorModal } from "../Modal/Error";
-import * as urlConstants from "../constants/urls";
-import { ReactSession } from 'react-client-session';
+import { Link } from "react-router-dom";
+import AuthContext from "../Auth/authContext";
 
 
 export default function LoginPage(props) {
 
+    const ctx = React.useContext(AuthContext);
+    
     const [login, setLogin] = React.useState({
         email: "",
         password: ""
     })
-    
-    const [showModalError, setShowModalError] = React.useState({
-        error: false,
-        message: "",
-        header: "Login Error"
-    })
-
-    const history = useHistory()
-
 
     function handleChange(event) {
         const {name, value} = event.target
@@ -31,56 +22,9 @@ export default function LoginPage(props) {
         })
     }
 
-    async function loginUser() {
-        try {
-        const response = await fetch(urlConstants.AUTH_TOKEN_GENERATE, {
-            method:'POST',
-            body: JSON.stringify(login),
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        });
-        if (!response.ok) {
-            let errorString;
-            if (response.status === 401) {
-                errorString = "User is unauthorized"
-            }
-            else {
-                errorString = "Response status: " + response.status.toString()
-            }
-            throw new Error(errorString)
-        }
-
-        const data = await response.json()
-        sessionStorage.setItem('access_token', data.access_token)
-        ReactSession.set("username", data.username);
-        props.setName(data.username);
-        history.push('/home')
-        }
-        catch (error) {
-            setShowModalError((prevError) => {
-                return {
-                    ...prevError,
-                    error: true,
-                    message: error
-                } 
-            })
-        }
-    }
-
     function handleSubmit(event) {
         event.preventDefault()
-        loginUser()
-    }
-
-    function toggleModalShow() {
-        setShowModalError((prevError) => {
-            return {
-                ...prevError,
-                error: false,
-                message: ""
-            } 
-        })
+        ctx.onLogin(login);
     }
 
     return (
@@ -101,12 +45,6 @@ export default function LoginPage(props) {
                     <button>Login</button>
                 </form>
                 <p className="not_sign_up">Not signed up? Sign up <Link to={'/sign-up'}>here</Link>. </p>
-            </div>
-            <div className="error-modal">
-            <ErrorModal error={showModalError.error}
-                onClose={toggleModalShow}
-                message={showModalError.message}
-                header={showModalError.header}/>
             </div>
         </div>
     )

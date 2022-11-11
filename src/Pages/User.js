@@ -25,6 +25,7 @@ export default function User() {
     })
 
     useEffect(() => {
+        console.log("Running use effect in user");
         if (sessionStorage.getItem("access_token")) {
             defineMe();
         }
@@ -72,7 +73,8 @@ export default function User() {
             }
     
             const data = await response.json()
-            setUserState(data)
+            setUserState(data);
+            ReactSession.set("username", data.first_name);
             }
             catch (error) {
                 setShowModalError((prevError) => {
