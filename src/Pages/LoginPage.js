@@ -33,11 +33,11 @@ export default function LoginPage() {
 
     return (
         <div>
-            <div className="sign_up_div">
-                <div className="sign_up_title">
+            <div className="form_div">
+                <div className="form_title">
                     <h2>Login</h2>
                 </div>
-                <form onSubmit={handleSubmit} className="sign_up_form">
+                <form onSubmit={handleSubmit} className="form_form">
                     
                     <label htmlFor="email">Email </label>
                     <input id="email" name="email" value={login.email} onChange={handleChange} />
@@ -46,7 +46,7 @@ export default function LoginPage() {
                     <input id="password" name="password" value={login.password} onChange={handleChange} />
                     <br />
                     
-                    <button>Login</button>
+                    <button className="form_button">Login</button>
                 </form>
                 <p className="not_sign_up">Not signed up? Sign up <Link to={'/sign-up'}>here</Link>. </p>
             </div>

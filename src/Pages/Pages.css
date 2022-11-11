@@ -1,4 +1,4 @@
-.sign_up_div {
+.form_div {
     border: 1px solid black;
     margin-top: 40px;
     margin-left: 35%;
@@ -6,7 +6,7 @@
     border-radius: 7px;
 }
 
-.sign_up_form {
+.form_form {
     margin: 40px;
     margin-top: 15px;
     display: grid;
@@ -15,7 +15,7 @@
     text-align: left;
 }
 
-.sign_up_title {
+.form_title {
     margin-top: 15px;
     text-align: center;
     color: #3eb6cf;
@@ -27,7 +27,7 @@ input {
     height: 24px;
 }
 
-.signup-button {
+.form_button {
     height: 50px;
     border: 1px solid gray;
     border-radius: 25px;
@@ -44,4 +44,11 @@ input {
 
 .not_sign_up {
     margin-left: 25%;
+}
+
+.date_picker {
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 24px;
+    width: 290px;
 }
