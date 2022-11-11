@@ -4,9 +4,13 @@ import LoginPage from './Pages/LoginPage';
 import HomePage from './Pages/HomePage';
 import User from './Pages/User';
 import './App.css';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
+import React from 'react';
+import AuthContext from "../src/Auth/authContext"
 
 function App() {
+
+  const authCtx = React.useContext(AuthContext);
   
   return (
     <div>
@@ -19,12 +23,14 @@ function App() {
           <Route path="/login">
             <LoginPage />
           </Route>
+          {authCtx.isLoggedIn &&
           <Route path="/home">
             <HomePage />
-          </Route>
+          </Route>}
+          {authCtx.isLoggedIn &&
           <Route path="/user">
             <User />
-          </Route>
+          </Route>}
         </Switch>
       </div>
     </div>

@@ -6,8 +6,6 @@ To Do List
 - Create update functionality for the User page. [PRDEV-027]
 
 -- Epic related to Auth
-- Create a logout button if the user is logged in. [PRDEV-025]
-- Also ensure that the user should be logged-in in every page. [PRDEV-026]
 - Bug: User state is getting lost on page refresh. [PRDEV-028]
 
 
@@ -40,3 +38,5 @@ Completed Tasks
 - Integrate User Icon and active user status with the header [PRDEV-020]
 - Create an AuthProvider and keep it central [PRDEV-030]
 - 'Hi User' should be replaced by a login button [PRDEV-029]
+- Create a logout button if the user is logged in. [PRDEV-025]
+- Also ensure that the user should be logged-in in every page. [PRDEV-026]
