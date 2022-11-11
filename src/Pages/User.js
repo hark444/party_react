@@ -2,7 +2,6 @@ import { React, useEffect, useState, Fragment } from "react";
 import "./User.css"
 import { ErrorModal } from "../Modal/Error";
 import * as urlConstants from "../constants/urls";
-import { ReactSession } from 'react-client-session';
 import { useHistory, NavLink } from "react-router-dom"
 
 export default function User() {
@@ -37,7 +36,6 @@ export default function User() {
                     message: "User not logged in. Redirecting to login page"
                 } 
             })
-            ReactSession.set("username", "")
         }
     }, [])
 
@@ -74,7 +72,6 @@ export default function User() {
     
             const data = await response.json()
             setUserState(data);
-            ReactSession.set("username", data.first_name);
             }
             catch (error) {
                 setShowModalError((prevError) => {

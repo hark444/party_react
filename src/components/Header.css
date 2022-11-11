@@ -30,4 +30,6 @@
     flex-basis: 15%;
     align-self: center;
     text-align: center;
+    display: flex;
+    justify-content: space-around;
 }

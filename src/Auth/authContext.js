@@ -7,6 +7,7 @@ const AuthContext = React.createContext({
     isLoggedIn: false,
     onLogin: (login) => {},
     username: '',
+    onLogout: () => {},
 })
 
 export const AuthContextProvider = (props) => {
@@ -76,10 +77,18 @@ export const AuthContextProvider = (props) => {
     //     window.location.assign('/login');
     // }
 
+    function logoutHandler() {
+        setIsLoggedIn(false)
+        sessionStorage.removeItem('access_token')
+        setUserName('User')
+    }
+
+
     return <AuthContext.Provider value={{
         isLoggedIn: isLoggedIn,
         onLogin: loginHandler,
         username: userName,
+        onLogout: logoutHandler
     }}>
         {props.children}
         <div className="error-modal">
