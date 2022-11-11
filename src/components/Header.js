@@ -1,8 +1,12 @@
-import { React } from "react";
+import React from "react";
 import {NavLink} from "react-router-dom"
 import "./Header.css"
+import AuthContext from "../Auth/authContext";
 
-export default function Header(props) {
+export default function Header() {
+
+    const Authctx = React.useContext(AuthContext);
+
     return (
         <div className="header">
             <h1 className="header_title">Party Counter App</h1>
@@ -17,9 +21,12 @@ export default function Header(props) {
                 </ul>
             </div>
             <div className="header_user">
-                <NavLink className="clean_links" activeClassName="active_clean_links" to="/user">
-                    Hi {props.username}
-                </NavLink>
+                {Authctx.username !== 'User' && <NavLink className="clean_links" activeClassName="active_clean_links" to="/user">
+                    Hi {Authctx.username}
+                </NavLink>}
+                {Authctx.username === 'User' && <NavLink className="clean_links" activeClassName="active_clean_links" to="/login">
+                    Login
+                </NavLink>}
             </div>
         </div>
     )

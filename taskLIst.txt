@@ -10,7 +10,6 @@ To Do List
 - Create update functionality for the User page. [PRDEV-027]
 - Bug: User state is getting lost on page refresh. [PRDEV-028]
 - 'Hi User' should be replaced by a login button [PRDEV-029]
-- Create an AuthProvider and keep it central [PRDEV-030]
 
 
 
@@ -40,3 +39,4 @@ Completed Tasks
 - Think of a way to save user state only once while logging into the application [PRDEV-022]
 - User should only be visible when user is logged in, else user should be redirected to login page [PRDEV-024]
 - Integrate User Icon and active user status with the header [PRDEV-020]
+- Create an AuthProvider and keep it central [PRDEV-030]
