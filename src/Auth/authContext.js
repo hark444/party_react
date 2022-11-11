@@ -1,6 +1,7 @@
 import React from "react";
 import * as urlConstants from "../constants/urls";
 import { ErrorModal } from "../Modal/Error";
+import { RequestHandler } from "../Helpers/RequestHandler";
 
 
 const AuthContext = React.createContext({
@@ -22,47 +23,31 @@ export const AuthContextProvider = (props) => {
     const [accessToken, setAccessToken] = React.useState('')
 
     function loginHandler(login) {
-        token_generate(login).then((user) => {
-            sessionStorage.setItem('access_token', user.access_token)
-            setIsLoggedIn(true);
-            setUserName(user.username);
-            setAccessToken(user.access_token)
-        })
-    }
-
-    async function token_generate(login) {
-        try {
-            const response = await fetch(urlConstants.AUTH_TOKEN_GENERATE, {
-                method:'POST',
-                body: JSON.stringify(login),
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            });
-            if (!response.ok) {
-                let errorString;
-                if (response.status === 401) {
-                    errorString = "User is unauthorized"
-                }
-                else {
-                    errorString = "Response status: " + response.status.toString()
-                }
-                throw new Error(errorString)
+        const request_obj = {
+            url: urlConstants.AUTH_TOKEN_GENERATE,
+            method: 'POST',
+            // access_token: authCtx.access_token,
+            body: login
+        }
+        RequestHandler(request_obj).then((result) => {
+            if (result.success) {
+                sessionStorage.setItem('access_token', result.data.access_token)
+                setIsLoggedIn(true);
+                setUserName(result.data.username);
+                setAccessToken(result.data.access_token)
             }
-    
-            const data = await response.json()
-            return data
-        }
-        catch (error) {
-            setIsLoggedIn(false);
-            setShowModalError((prevError) => {
-                return {
-                    ...prevError,
-                    error: true,
-                    message: error
-                } 
-            })
-        }
+            else {
+                setIsLoggedIn(false);
+                setShowModalError((prevError) => {
+                    return {
+                        ...prevError,
+                        error: true,
+                        message: result.data
+                    } 
+                })
+            }
+            
+        })
     }
 
     function toggleModalShow() {
