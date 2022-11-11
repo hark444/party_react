@@ -1,11 +1,11 @@
-import React from "react";
+import { React, Fragment, useContext } from "react";
 import {NavLink} from "react-router-dom"
 import "./Header.css"
 import AuthContext from "../Auth/authContext";
 
 export default function Header() {
 
-    const Authctx = React.useContext(AuthContext);
+    const authCtx = useContext(AuthContext);
 
     return (
         <div className="header">
@@ -21,10 +21,16 @@ export default function Header() {
                 </ul>
             </div>
             <div className="header_user">
-                {Authctx.username !== 'User' && <NavLink className="clean_links" activeClassName="active_clean_links" to="/user">
-                    Hi {Authctx.username}
-                </NavLink>}
-                {Authctx.username === 'User' && <NavLink className="clean_links" activeClassName="active_clean_links" to="/login">
+                {authCtx.username !== 'User' && 
+                <Fragment>
+                <NavLink className="clean_links" activeClassName="active_clean_links" to="/user">
+                    Hi, {authCtx.username}
+                </NavLink>
+                <NavLink className="clean_links" activeClassName="active_clean_links" to="/login" onClick={authCtx.onLogout}>
+                    Logout
+                </NavLink>
+                </Fragment>}
+                {authCtx.username === 'User' && <NavLink className="clean_links" activeClassName="active_clean_links" to="/login">
                     Login
                 </NavLink>}
             </div>
