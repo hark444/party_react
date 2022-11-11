@@ -8,6 +8,7 @@ const AuthContext = React.createContext({
     onLogin: (login) => {},
     username: '',
     onLogout: () => {},
+    access_token: '',
 })
 
 export const AuthContextProvider = (props) => {
@@ -18,12 +19,14 @@ export const AuthContextProvider = (props) => {
         header: "Authentication Error"
     })
     const [userName, setUserName] = React.useState('User')
+    const [accessToken, setAccessToken] = React.useState('')
 
     function loginHandler(login) {
         token_generate(login).then((user) => {
             sessionStorage.setItem('access_token', user.access_token)
             setIsLoggedIn(true);
             setUserName(user.username);
+            setAccessToken(user.access_token)
         })
     }
 
@@ -88,7 +91,8 @@ export const AuthContextProvider = (props) => {
         isLoggedIn: isLoggedIn,
         onLogin: loginHandler,
         username: userName,
-        onLogout: logoutHandler
+        onLogout: logoutHandler,
+        access_token: accessToken
     }}>
         {props.children}
         <div className="error-modal">

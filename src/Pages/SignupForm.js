@@ -1,5 +1,5 @@
 import React from "react";
-import "./SignupForm.css"
+import "./Pages.css"
 import { ErrorModal } from "../Modal/Error";
 import { Link } from "react-router-dom"
 import * as urlConstants from "../constants/urls";
@@ -114,11 +114,11 @@ export default function SignupForm() {
 
     return (
         <div className="container">
-            <div className="sign_up_div">
-                <div className="sign_up_title">
+            <div className="form_div">
+                <div className="form_title">
                     <h2>Sign Up</h2>
                 </div>
-                <form onSubmit={handleSubmit} className="sign_up_form">
+                <form onSubmit={handleSubmit} className="form_form">
                     <label htmlFor="username">Name </label>
                     <input id="username" name="username" value={signupForm.username} onChange={handleChange} />
                     <br />
@@ -135,7 +135,7 @@ export default function SignupForm() {
 
                     <br />
                     <br />
-                    <button className="signup-button">Signup</button>
+                    <button className="form_button">Signup</button>
                 </form>
                 <p className="not_sign_up">Already signed up? Log in <Link to={'/login'}>here</Link>. </p>
             </div>

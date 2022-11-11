@@ -3,6 +3,7 @@ import SignupForm from './Pages/SignupForm';
 import LoginPage from './Pages/LoginPage';
 import HomePage from './Pages/HomePage';
 import User from './Pages/User';
+import CreateParty from './Pages/CreateParty';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import React from 'react';
@@ -31,6 +32,11 @@ function App() {
           <Route path="/user">
             <User />
           </Route>}
+          {authCtx.isLoggedIn &&
+          <Route path="/create-party">
+            <CreateParty />
+          </Route>
+          }
         </Switch>
       </div>
     </div>
