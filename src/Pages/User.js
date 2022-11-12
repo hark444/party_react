@@ -1,5 +1,5 @@
 import { React, useEffect, useState, Fragment } from "react";
-import "./User.css"
+import "./Pages.css"
 import { ErrorModal } from "../Modal/Error";
 import * as urlConstants from "../constants/urls";
 import { useHistory, NavLink } from "react-router-dom"
