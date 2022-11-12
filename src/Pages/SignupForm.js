@@ -1,8 +1,9 @@
 import React from "react";
 import "./Pages.css"
 import { ErrorModal } from "../Modal/Error";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import * as urlConstants from "../constants/urls";
+import { RequestHandler } from "../Helpers/RequestHandler";
 
 export default function SignupForm() {
     
@@ -21,6 +22,8 @@ export default function SignupForm() {
         message: "",
         header: "Signup Error"
     })
+
+    const history = useHistory();
 
     function handleChange(event) {
         const {name, value} = event.target
@@ -53,51 +56,35 @@ export default function SignupForm() {
         })
     }
 
-    async function createUser() {
-        setNames(signupForm.username)
-        try {
-        const response = await fetch(urlConstants.USER_CREATE, {
-            method:'POST',
-            body: JSON.stringify(signupForm),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        if (!response.ok) {
-            let errorString;
-            if (response.status === 401) {
-                errorString = "User is unauthorized"
-            }
-            else {
-                errorString = "Response status: " + response.status.toString()
-            }
-            throw new Error(errorString)
-        }
-
-        const data = await response.json()
-        // TODO: Convert this to success message
-        console.log(data)
-        }
-        catch (error) {
-            console.log(error)
-            setShowModalError((prevError) => {
-                return {
-                    ...prevError,
-                    error: true,
-                    message: error
-                } 
-            })
-        }
-    }
-
-
     function handleSubmit(event) {
         event.preventDefault()
         if (!showError){
-            createUser()
+            setNames(signupForm.username)
+            const request_obj = {
+                url: urlConstants.USER_CREATE,
+                method: 'POST',
+                body: signupForm
+            }
+            RequestHandler(request_obj).then((result) => {
+                if (result.success) {
+                    // To Do: Render success message on the next page.
+                    console.log("User signed up successfully.");
+                    history.push('/login')
+                }
+                else {
+                    setShowModalError((prevError) => {
+                        return {
+                            ...prevError,
+                            error: true,
+                            message: result.data
+                        } 
+                    })
+                }
+                
+            })
         }
         else {
-            // TODO: Convert this to error message
+            // To Do: Convert this to error message
             console.log("Not submitting")
         }
     }
