@@ -91,3 +91,35 @@ input {
     margin-left: 40%;
     text-align: center;  
 }
+
+.party_list_heading {
+    color: #2a9bc9;
+    margin-left: 40%;
+    font-weight: 500;
+}
+
+.party_list_container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.party_detail_container {
+    flex-direction: row;
+}
+
+.party_detail_values {
+    flex-direction: column;
+    margin-left: 36px;
+    color: #3eb6cf;
+}
+
+.party_detail_fields {
+    flex-direction: column;
+    color: #2a9bc9;
+}
+
+.vertical_line {
+    margin: 10px;
+    border-left: 2px solid blueviolet;
+}
