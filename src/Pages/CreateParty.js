@@ -37,7 +37,6 @@ export default function CreateParty() {
     function handleSubmit(event) {
         event.preventDefault()
         validateForm()
-        console.log(authCtx.access_token)
         const request_obj = {
             url: urlConstants.CREATE_PARTY,
             method: 'POST',
@@ -45,10 +44,10 @@ export default function CreateParty() {
             body: partyForm
         }
         RequestHandler(request_obj).then((result) => {
+            // To Do: Handle success and push to Detail page
             console.log(result.success.toString())
             console.log(result.data)
         })
-        
     }
 
     function validateForm() {

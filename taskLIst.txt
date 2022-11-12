@@ -4,16 +4,17 @@ To Do List
 - Find a better way to store all CSS files [PRDEV-010]
 - Create a common way to handle all errors while making fetch requests [PRDEV-011]
 - Create update functionality for the User page. [PRDEV-027]
-- Create create_party page and Integrate its link on header. [PRDEV-031]
 - Create parties_given page and Integrate its link on header. [PRDEV-032]
 - Create parties_attended page and Integrate its link on header. [PRDEV-033]
 - Create about page and Integrate its link on header. [PRDEV-034]
-- Create cpntact us page and Integrate its link on header. [PRDEV-035]
+- Create contact us page and Integrate its link on header. [PRDEV-035]
 - Update signup page with the new Auth Provider. [PRDEV-036]
 - Create a common Request handler and merge all existing requests to it. [PRDEV-037]
 
 -- Epic related to Auth
 - Bug: User state is getting lost on page refresh. [PRDEV-028]
+- Fix User page and signup page with AuthProvider [PRDEV-038]
+- Merge user css into main pages css [PRDEV-039]
 
 
 
@@ -47,3 +48,4 @@ Completed Tasks
 - 'Hi User' should be replaced by a login button [PRDEV-029]
 - Create a logout button if the user is logged in. [PRDEV-025]
 - Also ensure that the user should be logged-in in every page. [PRDEV-026]
+- Create create_party page and Integrate its link on header. [PRDEV-031]
