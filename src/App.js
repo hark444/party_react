@@ -4,6 +4,7 @@ import LoginPage from './Pages/LoginPage';
 import HomePage from './Pages/HomePage';
 import User from './Pages/User';
 import CreateParty from './Pages/CreateParty';
+import PartyList from './Pages/PartyList';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import React from 'react';
@@ -24,20 +25,23 @@ function App() {
           <Route path="/login">
             <LoginPage />
           </Route>
+          </Switch>
           {authCtx.isLoggedIn &&
+          <Switch>
           <Route path="/home">
             <HomePage />
-          </Route>}
-          {authCtx.isLoggedIn &&
+          </Route>
           <Route path="/user">
             <User />
-          </Route>}
-          {authCtx.isLoggedIn &&
+          </Route>
           <Route path="/create-party">
             <CreateParty />
           </Route>
+          <Route path="/view-parties">
+            <PartyList />
+          </Route>
+          </Switch>
           }
-        </Switch>
       </div>
     </div>
   );

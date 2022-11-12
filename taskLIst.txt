@@ -8,14 +8,12 @@ To Do List
 - Create parties_attended page and Integrate its link on header. [PRDEV-033]
 - Create about page and Integrate its link on header. [PRDEV-034]
 - Create contact us page and Integrate its link on header. [PRDEV-035]
-- Integrate User request with Request Handler [PRDEV-042]
-
+- Create a list parties page and create a header link for it. [PRDEV-043]
+- Create a view party detail page and link it within the list page. [PRDEV-044]
 
 -- Epic related to Auth
 - Bug: User state is getting lost on page refresh. [PRDEV-028]
 - Fix User page and signup page with AuthProvider [PRDEV-038]
-- Merge user css into main pages css [PRDEV-039]
-
 - Convert all password inputs to password type fields [PRDEV-041]
 
 
@@ -54,3 +52,5 @@ Completed Tasks
 - Create a common Request handler and merge all existing requests to it. [PRDEV-037]
 - Update signup page with the new Auth Provider. [PRDEV-036]
 - Bug: Create Party header is broken [PRDEV-040]
+- Merge user css into main pages css [PRDEV-039]
+- Integrate User request with Request Handler [PRDEV-042]

@@ -14,6 +14,7 @@ export default function Header() {
                 <ul>
                     <ol><NavLink className="clean_links" activeClassName="active_clean_links" to="/home">Home</NavLink></ol>
                     <ol><NavLink className="clean_links" activeClassName="active_clean_links" to="/create-party">Create Party</NavLink></ol>
+                    <ol><NavLink className="clean_links" activeClassName="active_clean_links" to="/view-parties">View Parties</NavLink></ol>
                     <ol>Parties Given</ol>
                     <ol>Parties Attended</ol>
                     <ol>About</ol>
