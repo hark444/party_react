@@ -102,10 +102,15 @@ input {
     margin-top: 100px;
     display: flex;
     justify-content: space-evenly;
+    flex-direction: column;
 }
 
 .party_detail_container {
     flex-direction: row;
+    margin: 20px;
+    margin-left: 28%;
+    border: 1px solid black;
+    padding: 24px;
 }
 
 .party_detail_values {
