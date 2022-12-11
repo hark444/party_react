@@ -6,7 +6,7 @@ import AuthContext from "../Auth/authContext"
 import PartyPrint from "../components/PartyDetail"
 import "./Pages.css"
 
-export default function PartyList() {
+export default function PartyList(props) {
 
     const authCtx = useContext(AuthContext);
 
@@ -16,9 +16,9 @@ export default function PartyList() {
     let partyElements;
 
     useEffect(() => {
-        console.log("Getting all party records");
+        const url = props.all ? urlConstants.LIST_PARTY_ALL : urlConstants.PARTY
         const request_obj = {
-            url: urlConstants.LIST_PARTY_ALL,
+            url: url,
             method: 'GET',
             access_token: authCtx.access_token
         }
@@ -40,7 +40,7 @@ export default function PartyList() {
             }
             
         })
-    }, [])
+    }, [props.all])
 
     if (!isLoading) {
         partyElements = data.map(party => {

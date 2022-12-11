@@ -42,7 +42,7 @@ export default function PartyDetail(props) {
             }
             
         })
-    }, [data])
+    }, [])
 
     return (
         <Fragment>
