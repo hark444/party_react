@@ -5,14 +5,23 @@ To Do List
 - Create a common way to handle all errors while making fetch requests [PRDEV-011]
 - Create update functionality for the User page. It needs to accept role and doj [PRDEV-027]
 - Create parties_given page and Integrate its link on header. [PRDEV-032]
-- Create parties_attended page and Integrate its link on header. [PRDEV-033]
+- Create parties_attended page and Integrate its link on header. [PRDEV-045]
 - Create about page and Integrate its link on header. [PRDEV-034]
 - Create contact us page and Integrate its link on header. [PRDEV-035]
-- Create a view party detail page and link it within the list page. [PRDEV-044]
+- Update the 'Parties given' header to 'Your Parties'. [PRDEV-046]
+- Update the Your Parties page to list user specific parties. [PRDEV-047]
+- Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
+- Add the error Modal on PartyList and PartyDetail pages. [PRDEV-049]
+
+
 
 -- Epic related to Auth
-- Bug: User state is getting lost on page refresh. [PRDEV-028]
-- Fix User page and signup page with AuthProvider [PRDEV-038]
+- Bugs: 
+    -User state is getting lost on page refresh. [PRDEV-028]
+    - Fix User page and signup page with AuthProvider [PRDEV-038]
+    - View party page should contain the created by users header [PRDEV-046]
+
+
 - Convert all password inputs to password type fields [PRDEV-041]
 
 
@@ -54,3 +63,5 @@ Completed Tasks
 - Merge user css into main pages css [PRDEV-039]
 - Integrate User request with Request Handler [PRDEV-042]
 - Create a list parties page and create a header link for it. [PRDEV-043]
+- Create the view parties page and integrate it with get all party api [PRDEV-033]
+- Create a view party detail page and link it within the list page. [PRDEV-044]

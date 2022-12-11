@@ -39,7 +39,10 @@ function App() {
             <CreateParty />
           </Route>
           <Route path="/view-parties">
-            <PartyList />
+            <PartyList all={true}/>
+          </Route>
+          <Route path="/your-parties">
+            <PartyList all={false}/>
           </Route>
           <Route path="/party-detail/:partyId">
             <PartyDetail />
