@@ -8,7 +8,6 @@ To Do List
 - Create parties_attended page and Integrate its link on header. [PRDEV-033]
 - Create about page and Integrate its link on header. [PRDEV-034]
 - Create contact us page and Integrate its link on header. [PRDEV-035]
-- Create a list parties page and create a header link for it. [PRDEV-043]
 - Create a view party detail page and link it within the list page. [PRDEV-044]
 
 -- Epic related to Auth
@@ -54,3 +53,4 @@ Completed Tasks
 - Bug: Create Party header is broken [PRDEV-040]
 - Merge user css into main pages css [PRDEV-039]
 - Integrate User request with Request Handler [PRDEV-042]
+- Create a list parties page and create a header link for it. [PRDEV-043]

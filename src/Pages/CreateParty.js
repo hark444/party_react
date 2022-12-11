@@ -38,7 +38,7 @@ export default function CreateParty() {
         event.preventDefault()
         validateForm()
         const request_obj = {
-            url: urlConstants.CREATE_PARTY,
+            url: urlConstants.PARTY,
             method: 'POST',
             access_token: authCtx.access_token,
             body: partyForm

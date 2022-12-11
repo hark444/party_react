@@ -16,7 +16,7 @@ export default function Header() {
                     <ol><NavLink className="clean_links" activeClassName="active_clean_links" to="/create-party">Create Party</NavLink></ol>
                     <ol><NavLink className="clean_links" activeClassName="active_clean_links" to="/view-parties">View Parties</NavLink></ol>
                     <ol>Parties Given</ol>
-                    <ol>Parties Attended</ol>
+                    <ol><NavLink className="clean_links" activeClassName="active_clean_links" to="/parties-attended">Parties Attended</NavLink></ol>
                     <ol>About</ol>
                     <ol>Contact Us</ol>
                 </ul>
