@@ -26,7 +26,6 @@ export const AuthContextProvider = (props) => {
         const request_obj = {
             url: urlConstants.AUTH_TOKEN_GENERATE,
             method: 'POST',
-            // access_token: authCtx.access_token,
             body: login
         }
         RequestHandler(request_obj).then((result) => {
@@ -60,11 +59,7 @@ export const AuthContextProvider = (props) => {
         })
         window.location.assign('/login')
     }
-
-    // if (!isLoggedIn) {
-    //     window.location.assign('/login');
-    // }
-
+    
     function logoutHandler() {
         setIsLoggedIn(false)
         sessionStorage.removeItem('access_token')
