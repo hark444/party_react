@@ -4,13 +4,11 @@ To Do List
 - Find a better way to store all CSS files [PRDEV-010]
 - Create a common way to handle all errors while making fetch requests [PRDEV-011]
 - Create update functionality for the User page. It needs to accept role and doj [PRDEV-027]
-
-- Create parties_attended page and Integrate its link on header. [PRDEV-045]
-
 - Create about page and Integrate its link on header. [PRDEV-034]
 - Create contact us page and Integrate its link on header. [PRDEV-035]
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
 - Add the error Modal on PartyList and PartyDetail pages. [PRDEV-049]
+- On opening the party detail page, writable fields should be populated a 'Save' button on Party Detail Page.[PRDEV-050]
 
 
 
@@ -22,6 +20,12 @@ To Do List
 
 
 - Convert all password inputs to password type fields [PRDEV-041]
+
+
+
+In-progress Tasks
+- Create parties_attended page and Integrate its link on header. [PRDEV-045]
+
 
 
 

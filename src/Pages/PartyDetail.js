@@ -14,37 +14,63 @@ export default function PartyDetail(props) {
 
     const [data, setData] = useState(null);
     
+    const [paData, setPaData] = useState(null);
+    
     useEffect(() => {
-        const partyId = params.partyId;
-        const request_obj = {
-            url: urlConstants.PARTY + `/${partyId}`,
+        const party_attended_request_obj = {
+            url: urlConstants.PARTY_ATTENDED+ `?party_id=${params.partyId}`,
             method: 'GET',
             access_token: authCtx.access_token
         }
-        RequestHandler(request_obj).then((result) => {
+        const request_obj = {
+            url: urlConstants.PARTY + `/${params.partyId}`,
+            method: 'GET',
+            access_token: authCtx.access_token
+        }
+        Promise.all([
+            RequestHandler(request_obj),
+            RequestHandler(party_attended_request_obj)
+        ]).then(function (responses) {
+            // Get a JSON object from each of the responses
+            return Promise.all(responses.map(function (response) {
+                return response;
+            }));
+        }).then(function (data) {
+            
+            // Extracting party object
+            const result = data[0]
             if (result.success) {
-                // To Do: Render success message on the next page.
-                const partyData = result.data;
-                setData(partyData);
+                setData(result.data);
             }
             else {
-                // setShowModalError((prevError) => {
-                //     return {
-                //         ...prevError,
-                //         error: true,
-                //         message: result.data
-                //     } 
-                // })
-                console.log("Getting in else.")
+                console.log("Error in getting party object: " + result);
             }
             
-        })
+            // Extracting party attended object
+            const pa_result = data[1]
+            if (pa_result.success) {
+                setPaData(pa_result.data.data[0]);
+            }
+            else {
+                console.log("Error in getting party object: " + result);
+            }
+            
+        }).catch(function (error) {
+            // if there's an error, log it
+            console.log(error);
+        }
+        
+        )
     }, [authCtx, params.partyId])
-
+    
     return (
         <Fragment>
             <h1 className="party_list_heading">Party Detail Page</h1>
-            {data && <PartyPrint key={0} props={data} />}
+            {data && 
+            <Fragment>
+                <PartyPrint key={0} props={data} showEdit={true} paData={paData} />
+            </Fragment>
+            }
         </Fragment>
     )
 }
