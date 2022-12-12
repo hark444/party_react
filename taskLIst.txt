@@ -4,8 +4,9 @@ To Do List
 - Find a better way to store all CSS files [PRDEV-010]
 - Create a common way to handle all errors while making fetch requests [PRDEV-011]
 - Create update functionality for the User page. It needs to accept role and doj [PRDEV-027]
-- Create parties_given page and Integrate its link on header. [PRDEV-032]
+
 - Create parties_attended page and Integrate its link on header. [PRDEV-045]
+
 - Create about page and Integrate its link on header. [PRDEV-034]
 - Create contact us page and Integrate its link on header. [PRDEV-035]
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
@@ -65,3 +66,4 @@ Completed Tasks
 - Create a view party detail page and link it within the list page. [PRDEV-044]
 - Update the 'Parties given' header to 'Your Parties'. [PRDEV-046]
 - Update the Your Parties page to list user specific parties. [PRDEV-047]
+- Create parties_given page and Integrate its link on header. [PRDEV-032]

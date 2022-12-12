@@ -1,5 +1,4 @@
 export default function PartyPrint(props) {
-    // console.log(props)
     return (
         <div className="card party_detail_container">
             <div className="party_detail_fields">
