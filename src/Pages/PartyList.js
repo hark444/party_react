@@ -40,7 +40,7 @@ export default function PartyList(props) {
             }
             
         })
-    }, [props.all])
+    }, [props.all, authCtx])
 
     if (!isLoading) {
         partyElements = data.map(party => {

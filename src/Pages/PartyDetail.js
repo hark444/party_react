@@ -9,8 +9,6 @@ import "./Pages.css"
 export default function PartyDetail(props) {
 
     const params = useParams();
-    console.log("logging params here");
-    console.log(params);
 
     const authCtx = useContext(AuthContext);
 
@@ -28,7 +26,6 @@ export default function PartyDetail(props) {
                 // To Do: Render success message on the next page.
                 const partyData = result.data;
                 setData(partyData);
-                    // partyElements = <PartyPrint key={0} props={data} />
             }
             else {
                 // setShowModalError((prevError) => {
@@ -42,7 +39,7 @@ export default function PartyDetail(props) {
             }
             
         })
-    }, [])
+    }, [authCtx, params.partyId])
 
     return (
         <Fragment>
