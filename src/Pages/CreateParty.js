@@ -45,8 +45,6 @@ export default function CreateParty() {
         }
         RequestHandler(request_obj).then((result) => {
             // To Do: Handle success and push to Detail page
-            console.log(result.success.toString())
-            console.log(result.data)
         })
     }
 

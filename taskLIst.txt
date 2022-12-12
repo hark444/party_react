@@ -8,8 +8,6 @@ To Do List
 - Create parties_attended page and Integrate its link on header. [PRDEV-045]
 - Create about page and Integrate its link on header. [PRDEV-034]
 - Create contact us page and Integrate its link on header. [PRDEV-035]
-- Update the 'Parties given' header to 'Your Parties'. [PRDEV-046]
-- Update the Your Parties page to list user specific parties. [PRDEV-047]
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
 - Add the error Modal on PartyList and PartyDetail pages. [PRDEV-049]
 
@@ -65,3 +63,5 @@ Completed Tasks
 - Create a list parties page and create a header link for it. [PRDEV-043]
 - Create the view parties page and integrate it with get all party api [PRDEV-033]
 - Create a view party detail page and link it within the list page. [PRDEV-044]
+- Update the 'Parties given' header to 'Your Parties'. [PRDEV-046]
+- Update the Your Parties page to list user specific parties. [PRDEV-047]
