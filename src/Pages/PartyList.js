@@ -49,6 +49,7 @@ export default function PartyList(props) {
                 <PartyPrint 
                 key={party.id}
                 props={party}
+                showEdit={false}
                 />
             </NavLink>
         })

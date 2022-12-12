@@ -15,16 +15,38 @@
     text-align: left;
 }
 
+.form_fieldset {
+    min-width: 380px;
+}
+
 .form_title {
     margin-top: 15px;
     text-align: center;
     color: #3eb6cf;
 }
 
+
+fieldset input {
+    margin: 5px;
+    padding: 5px;
+}
+
+fieldset label {
+    margin: 5px;
+    padding: 5px;
+}
+
 input {
     border: 1px solid gray;
     border-radius: 5px;
     height: 24px;
+    float: right;
+}
+
+label {
+    font-size: 18px;
+    height: 26px;
+    float: left;
 }
 
 .form_button {
@@ -36,6 +58,7 @@ input {
     cursor: pointer;
     font-weight: 500;
     font-size: 18px;
+    padding: 10px;
 }
 
 .form_error {
@@ -112,20 +135,5 @@ input {
     margin-left: 28%;
     border: 1px solid black;
     padding: 24px;
-}
-
-.party_detail_values {
-    flex-direction: column;
-    margin-left: 36px;
-    color: #3eb6cf;
-}
-
-.party_detail_fields {
-    flex-direction: column;
-    color: #2a9bc9;
-}
-
-.vertical_line {
-    margin: 10px;
-    border-left: 2px solid blueviolet;
+    width: fit-content;
 }
