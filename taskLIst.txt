@@ -8,11 +8,12 @@ To Do List
 - Create contact us page and Integrate its link on header. [PRDEV-035]
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
 - Add the error Modal on PartyList and PartyDetail pages. [PRDEV-049]
-- On opening the party detail page, writable fields should be populated a 'Save' button on Party Detail Page.[PRDEV-050]
+- The paData should be setup completely in PartyPrint. [PRDEV-051]
+- paData should submit and update the parties_attended POST/PUT API. [PRDEV-052]
+- Add further styling on the PartyPrint Page. [PRDEV-053]
+- There should be an 'edit' button on PartyPrint page, which sould enable the ratings and comments field. [PRDEV-054]
+- For empty parties-attended, the PartyPrint should display the field names. [PRDEV-055]
 
-
-
--- Epic related to Auth
 - Bugs: 
     -User state is getting lost on page refresh. [PRDEV-028]
     - Fix User page and signup page with AuthProvider [PRDEV-038]
@@ -71,3 +72,4 @@ Completed Tasks
 - Update the 'Parties given' header to 'Your Parties'. [PRDEV-046]
 - Update the Your Parties page to list user specific parties. [PRDEV-047]
 - Create parties_given page and Integrate its link on header. [PRDEV-032]
+- On opening the party detail page, writable fields should be populated a 'Save' button on Party Detail Page.[PRDEV-050]

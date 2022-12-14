@@ -2,29 +2,22 @@ import { Fragment, useState } from "react";
 
 export default function PartyPrint(props) {
 
-    const [paData, setPaData] = useState({
-        "rating": null,
-        "comment": null
-    })
 
     function handleSubmit(event){
         event.preventDefault()
         console.log("form submitted.")
-        console.log(paData)
+        console.log(props.paData)
     }
 
-    function handleChange(event) {
-        const {name, value} = event.target
-        setPaData(prevData => {
-            return {
-                ...prevData,
-                [name]: value
-            }
-        })
+    let party_rating;
+    let party_comment;
+
+    if (props.paData) {
+        party_rating = props.paData.rating
+        party_comment = props.paData.comment
     }
 
-    let paFormData;
-
+    
    
     return (
         <Fragment>
@@ -54,17 +47,17 @@ export default function PartyPrint(props) {
                     <input id="approved" value={props.props.approved.toString()} readOnly={true} />
                     </fieldset>
                     <br />
-                    {props.paData &&
+                    {(props.paData || props.showEdit) &&
                     <fieldset className="form_fieldset">
                     <label htmlFor="rating">Your Rating </label>
-                    <input id="rating" name="rating" value={paData.rating} onChange={handleChange} />
+                    <input id="rating" name="rating" value={party_rating} onChange={props.handleChange} />
                     <br />
                     <label htmlFor="comment">Comment </label>
-                    <input id="comment" name="comment" value={paData.comment} onChange={handleChange} />
+                    <input id="comment" name="comment" value={party_comment} onChange={props.handleChange} />
                     <br />
                     </fieldset>
                     }
-                    {props.paData && <button className="form_button">Save</button>}
+                    {(props.paData || props.showEdit) && <button className="form_button">Save</button>}
                 </form>
             </div>
             <br />
