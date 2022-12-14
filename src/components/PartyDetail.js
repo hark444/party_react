@@ -1,13 +1,7 @@
 import { Fragment, useState } from "react";
+import EditButton from "../components/EditButton"
 
 export default function PartyPrint(props) {
-
-
-    function handleSubmit(event){
-        event.preventDefault()
-        console.log("form submitted.")
-        console.log(props.paData)
-    }
 
     let party_rating;
     let party_comment;
@@ -17,12 +11,38 @@ export default function PartyPrint(props) {
         party_comment = props.paData.comment
     }
 
-    
-   
+    const [enableEdit, setEnableEdit] = useState({
+        disable: true,
+        buttonText: "Edit"
+    })
+
+    function enableEditing() {
+        if (enableEdit.disable) {
+            setEnableEdit({
+                disable: false,
+                buttonText: "Cancel"
+            });
+        }
+        else {
+            setEnableEdit({
+                disable: true,
+                buttonText: "Edit"
+            });
+        }
+        
+    }
+
+    function resetEdit() {
+        setEnableEdit({
+            disable: true,
+            buttonText: "Edit"
+        });
+    }
+
     return (
         <Fragment>
             <div className="card party_detail_container">
-                <form onSubmit={handleSubmit} className="form_form">
+                <form onSubmit={props.handleSubmit} className="form_form">
                 <fieldset disabled="disabled" className="form_fieldset">
                     
                     <label htmlFor="party_name">Party Name</label>
@@ -48,7 +68,7 @@ export default function PartyPrint(props) {
                     </fieldset>
                     <br />
                     {(props.paData || props.showEdit) &&
-                    <fieldset className="form_fieldset">
+                    <fieldset className="form_fieldset" disabled={enableEdit.disable}>
                     <label htmlFor="rating">Your Rating </label>
                     <input id="rating" name="rating" value={party_rating} onChange={props.handleChange} />
                     <br />
@@ -57,7 +77,12 @@ export default function PartyPrint(props) {
                     <br />
                     </fieldset>
                     }
-                    {(props.paData || props.showEdit) && <button className="form_button">Save</button>}
+                    {(props.paData || props.showEdit) && 
+                    <Fragment>
+                        <EditButton buttonText={enableEdit.buttonText} onClick={enableEditing}/>
+                        <button className="form_button" onClick={resetEdit}>Save</button>
+                    </Fragment>
+                    }
                 </form>
             </div>
             <br />
