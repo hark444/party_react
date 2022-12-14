@@ -62,13 +62,23 @@ export default function PartyDetail(props) {
         
         )
     }, [authCtx, params.partyId])
+
+    function handleChange(event) {
+        const {name, value} = event.target
+        setPaData(prevData => {
+            return {
+                ...prevData,
+                [name]: value
+            }
+        })
+    }
     
     return (
         <Fragment>
             <h1 className="party_list_heading">Party Detail Page</h1>
             {data && 
             <Fragment>
-                <PartyPrint key={0} props={data} showEdit={true} paData={paData} />
+                <PartyPrint key={0} props={data} showEdit={true} paData={paData} handleChange={handleChange}/>
             </Fragment>
             }
         </Fragment>
