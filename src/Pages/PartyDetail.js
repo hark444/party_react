@@ -56,7 +56,6 @@ export default function PartyDetail(props) {
             }
             
         }).catch(function (error) {
-            // if there's an error, log it
             console.log(error);
         }
         
@@ -72,13 +71,21 @@ export default function PartyDetail(props) {
             }
         })
     }
+
+    function handleSubmit(event){
+        event.preventDefault()
+        console.log("form submitted.")
+        console.log(paData)
+    }
     
     return (
         <Fragment>
             <h1 className="party_list_heading">Party Detail Page</h1>
             {data && 
             <Fragment>
-                <PartyPrint key={0} props={data} showEdit={true} paData={paData} handleChange={handleChange}/>
+                <PartyPrint key={0} props={data} showEdit={true}
+                paData={paData} handleChange={handleChange}
+                handleSubmit={handleSubmit}/>
             </Fragment>
             }
         </Fragment>
