@@ -79,7 +79,7 @@ export default function CreateParty() {
 
                     <br />
                     <br />
-                    <button className="form_button">Signup</button>
+                    <button className="form_button">Create Party!</button>
                 </form>
             </div>
         </div>

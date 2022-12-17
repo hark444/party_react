@@ -6,6 +6,7 @@ import User from './Pages/User';
 import CreateParty from './Pages/CreateParty';
 import PartyList from './Pages/PartyList';
 import PartyDetail from './Pages/PartyDetail';
+import PartyAttended from './Pages/PartiesAttended';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import React from 'react';
@@ -46,6 +47,9 @@ function App() {
           </Route>
           <Route path="/party-detail/:partyId">
             <PartyDetail />
+          </Route>
+          <Route path="/parties-attended">
+            <PartyAttended />
           </Route>
           </Switch>
 }

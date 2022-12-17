@@ -9,7 +9,6 @@ To Do List
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
 - Add the error Modal on PartyList and PartyDetail pages. [PRDEV-049]
 - Add further styling on the PartyPrint Page. [PRDEV-053]
-- paData should submit and update the parties_attended POST/PUT API. [PRDEV-056]
 - Add validations to Fields in CreateParty and ViewParty. [PRDEV-057]
 
 
@@ -75,3 +74,14 @@ Completed Tasks
 - The paData should be setup completely in PartyPrint. [PRDEV-051]
 - There should be an 'edit' button on PartyPrint page, which sould enable the ratings and comments field. [PRDEV-054]
 - For empty parties-attended, the PartyPrint should display the field names. [PRDEV-055]
+- paData should submit and update the parties_attended POST/PUT API. [PRDEV-056]
+
+
+
+
+- Party update page,
+- party date absent from create pages.
+- party_place == party venue
+- guests_invited && actual attendance in put.
+- your parties to my parties
+- home page: most rated party; pie-chart containing % parties per person; 

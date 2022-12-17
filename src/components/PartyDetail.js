@@ -3,6 +3,8 @@ import EditButton from "../components/EditButton"
 
 export default function PartyPrint(props) {
 
+    console.log("party print component called with props: ", props)
+
     let party_rating;
     let party_comment;
 
