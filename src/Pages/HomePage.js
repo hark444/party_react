@@ -10,8 +10,6 @@ export default function HomePage() {
     return (
         <div className="container">
             <h1>Home Page</h1>
-            <p>{authCtx.username}</p>
-            <p>{authCtx.isLoggedIn.toString()}</p>
         </div>
     )
 }

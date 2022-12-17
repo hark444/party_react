@@ -30,13 +30,7 @@ export default function PartyList(props) {
                 setIsLoading(false);
             }
             else {
-                // setShowModalError((prevError) => {
-                //     return {
-                //         ...prevError,
-                //         error: true,
-                //         message: result.data
-                //     } 
-                // })
+                console.log("Couldn't fetch party list")
             }
             
         })
