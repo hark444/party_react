@@ -49,7 +49,14 @@ export default function PartyDetail(props) {
             // Extracting party attended object
             const pa_result = data[1]
             if (pa_result.success) {
+                if (!pa_result.data.data[0]){
+                    setPaData({
+                        party_id: params.partyId
+                    })
+                        }
+                else {
                 setPaData(pa_result.data.data[0]);
+                }
             }
             else {
                 console.log("Error in getting party object: " + result);
@@ -75,8 +82,33 @@ export default function PartyDetail(props) {
     function handleSubmit(event){
         event.preventDefault()
         console.log("form submitted.")
-        console.log(paData)
-    }
+        const request_obj = {
+            url: urlConstants.PARTY_ATTENDED,
+            body: paData,
+            method: 'PUT',
+            access_token: authCtx.access_token
+        }
+        if (!paData.id) {
+            request_obj.method = "POST";
+        }
+
+        else {
+            request_obj.url = request_obj.url + `/${paData.id}`;
+        }
+        
+        RequestHandler(request_obj).then((result) => {
+            if (result.success) {
+                // To Do: Render success message on the next page.
+                console.log("Party Attended data saved successfully.");
+                setPaData(result.data)
+            }
+            else {
+                console.log("result unsuccessfull")
+                console.log(result)
+            }
+            
+        })
+        }
     
     return (
         <Fragment>
