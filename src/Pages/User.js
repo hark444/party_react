@@ -1,20 +1,26 @@
-import { React, useEffect, useState, Fragment } from "react";
+import { React, useEffect, useState, Fragment, useContext } from "react";
 import "./Pages.css"
 import { ErrorModal } from "../Modal/Error";
 import * as urlConstants from "../constants/urls";
+import EditButton from "../components/EditButton";
 import { useHistory, NavLink } from "react-router-dom"
+import DatePicker from "react-datepicker";
+import { RequestHandler } from "../Helpers/RequestHandler";
+import AuthContext from "../Auth/authContext";
 
 export default function User() {
 
     const history = useHistory();
 
+    const authCtx = useContext(AuthContext)
+
     const [user, setUser] = useState({
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         disabled: false,
         role: "",
         team: "",
-        date_of_joining: ""
+        date_of_joining: new Date()
     })
 
     const [showModalError, setShowModalError] = useState({
@@ -23,10 +29,57 @@ export default function User() {
         header: "User Error"
     })
 
+    const [enableEdit, setEnableEdit] = useState({
+        disable: true,
+        buttonText: "Edit"
+    })
+
+    function enableEditing() {
+        if (enableEdit.disable) {
+            setEnableEdit({
+                disable: false,
+                buttonText: "Cancel"
+            });
+        }
+        else {
+            setEnableEdit({
+                disable: true,
+                buttonText: "Edit"
+            });
+        }
+        
+    }
+
+    function resetEdit() {
+        setEnableEdit({
+            disable: true,
+            buttonText: "Edit"
+        });
+    }
+
     useEffect(() => {
-        console.log("Running use effect in user");
-        if (sessionStorage.getItem("access_token")) {
-            defineMe();
+        if (authCtx.access_token) {
+            const request_obj = {
+                url: urlConstants.DEFINE_ME,
+                method: 'GET',
+                access_token: authCtx.access_token
+            }
+            RequestHandler(request_obj).then((result) => {
+                if (result.success) {
+                    // To Do: Render success message on the next page.
+                    setUser(result.data);
+                }
+                else {
+                    setShowModalError((prevError) => {
+                        return {
+                            ...prevError,
+                            error: true,
+                            message: result.data
+                        } 
+                    })
+                }
+                
+            })
         }
         else {
             setShowModalError((prevError) => {
@@ -37,52 +90,7 @@ export default function User() {
                 } 
             })
         }
-    }, [])
-
-    function setUserState(data) {
-        setUser({
-            firstName: data.first_name,
-            lastName: data.last_name,
-            disabled: data.disabled,
-            role: data.role,
-            team: data.team,
-            date_of_joining: data.date_of_joining
-        })
-    }
-
-    async function defineMe() {
-        try {
-            const response = await fetch(urlConstants.DEFINE_ME, {
-                method:'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + sessionStorage.getItem("access_token")
-                }
-            });
-            if (!response.ok) {
-                let errorString;
-                if (response.status === 401) {
-                    errorString = "User is unauthorized"
-                }
-                else {
-                    errorString = "Response status: " + response.status.toString()
-                }
-                throw new Error(errorString)
-            }
-    
-            const data = await response.json()
-            setUserState(data);
-            }
-            catch (error) {
-                setShowModalError((prevError) => {
-                    return {
-                        ...prevError,
-                        error: true,
-                        message: error
-                    } 
-                })
-            }
-    }
+    }, [authCtx.access_token])
 
     function toggleModalShow() {
         setShowModalError((prevError) => {
@@ -93,6 +101,37 @@ export default function User() {
             } 
         })
         history.push("/login")
+    }
+
+    function handleChange(event) {
+        const {name, value, type, checked} = event.target
+        setUser((prevForm => {
+            return {
+                ...prevForm,
+                [name]: type ==="checkbox" ? checked : value
+            }
+        }))
+    }
+
+    function handleSubmit(event){
+        event.preventDefault()
+        const request_obj = {
+            url: urlConstants.USER,
+            method: 'PUT',
+            access_token: authCtx.access_token,
+            body: user
+        }
+        RequestHandler(request_obj).then((result) => {
+            if (result.success) {
+                // To Do: Render success message on the next page.
+                const userData = result.data;
+                setUser(userData);
+            }
+            else {
+                console.log("Getting in else.")
+            }
+            
+        })
     }
 
 
@@ -106,10 +145,28 @@ export default function User() {
                 <hr />
             </div>
             <div className="profile--content">
-                <p><b>Name: </b>{user.firstName} {user.lastName}</p>
-                <p><b>Team: </b>{user.team}</p>
-                <p><b>Role: </b>{user.role}</p>
-                <p><b>Date of Joining: </b>{user.date_of_joining}</p>
+                <form onSubmit={handleSubmit} className="form_form">                    
+                    <label htmlFor="first_name">First Name</label>
+                    <input id="first_name" name="first_name" value={user.first_name} disabled={enableEdit.disable} onChange={handleChange}/>
+                    <br />
+                    <label htmlFor="last_name">Last Name</label>
+                    <input id="last_name" name="last_name" value={user.last_name} disabled={enableEdit.disable} onChange={handleChange}/>
+                    <br />
+                    <label htmlFor="team">Team</label>
+                    <input id="team" name="team" value={user.team || 'MPUlse'} disabled={enableEdit.disable} onChange={handleChange}/>
+                    <br />
+                    <label htmlFor="role">Role</label>
+                    <input id="role" name="role" value={user.role} disabled={enableEdit.disable} onChange={handleChange}/>
+                    <br />
+                    <label htmlFor="date_of_joining">Date of Joining</label>
+                    <DatePicker name="date_of_joining" className="date_picker" selected={Date.parse(user.date_of_joining)} onChange={handleChange} disabled={enableEdit.disable}/>
+                    {/* <DatePicker name="date_of_joining" className="date_picker" selected={Date.parse(user.date_of_joining)} disabled={enableEdit.disable}/> */}
+                    <br />
+                    <Fragment>
+                        <EditButton buttonText={enableEdit.buttonText} onClick={enableEditing}/>
+                        <button className="form_button" onClick={resetEdit}>Save</button>
+                    </Fragment>
+                    </form>
             </div>
         </div>
         <div className="signup-button user_update">

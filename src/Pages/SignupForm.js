@@ -61,7 +61,7 @@ export default function SignupForm() {
         if (!showError){
             setNames(signupForm.username)
             const request_obj = {
-                url: urlConstants.USER_CREATE,
+                url: urlConstants.USER,
                 method: 'POST',
                 body: signupForm
             }
