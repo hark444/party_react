@@ -37,7 +37,7 @@ export default function PartyAttended() {
                 setIsLoading(false);
                 setToast({
                     type: "success",
-                    message: "Fetched successfully"
+                    message: "All Parties Attended Fetched successfully"
                 })
             }
             else {

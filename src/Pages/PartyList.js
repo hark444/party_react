@@ -5,13 +5,21 @@ import { RequestHandler } from "../Helpers/RequestHandler"
 import AuthContext from "../Auth/authContext"
 import PartyPrint from "../components/PartyDetail"
 import "./Pages.css"
+import { ToastContainer } from 'react-toastify';
+import ToastNotify from "../Modal/ToastNotify"
 
 export default function PartyList(props) {
 
     const authCtx = useContext(AuthContext);
 
     const [data, setData] = useState(null);
+
     const [isLoading, setIsLoading] = useState(true);
+
+    const [toast, setToast] = useState({
+        type: '',
+        message: ''
+    })
 
     let partyElements;
 
@@ -28,9 +36,16 @@ export default function PartyList(props) {
                 const partyData = result.data.data;
                 setData(partyData);
                 setIsLoading(false);
+                setToast({
+                    type: "success",
+                    message: "All Parties Fetched successfully"
+                })
             }
             else {
-                console.log("Couldn't fetch party list")
+                setToast({
+                    type: "error",
+                    message: result.data.toString() || 'Error in Fetching'
+                })
             }
             
         })
@@ -56,6 +71,11 @@ export default function PartyList(props) {
             <div className="party_list_container">
                 {!isLoading && partyElements}
             </div>
+            {
+                toast.type && 
+                <ToastNotify props={toast} />
+            }
+            <ToastContainer />
         </Fragment>
     )
 }
