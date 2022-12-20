@@ -7,6 +7,8 @@ import { useHistory, NavLink } from "react-router-dom"
 import DatePicker from "react-datepicker";
 import { RequestHandler } from "../Helpers/RequestHandler";
 import AuthContext from "../Auth/authContext";
+import { ToastContainer } from 'react-toastify';
+import ToastNotify from "../Modal/ToastNotify"
 
 export default function User() {
 
@@ -34,7 +36,13 @@ export default function User() {
         buttonText: "Edit"
     })
 
+    const [toast, setToast] = useState({
+        type: '',
+        message: ''
+    })
+
     function enableEditing() {
+        resetToast()
         if (enableEdit.disable) {
             setEnableEdit({
                 disable: false,
@@ -51,6 +59,7 @@ export default function User() {
     }
 
     function resetEdit() {
+        resetToast()
         setEnableEdit({
             disable: true,
             buttonText: "Edit"
@@ -68,6 +77,10 @@ export default function User() {
                 if (result.success) {
                     // To Do: Render success message on the next page.
                     setUser(result.data);
+                    setToast({
+                        type: "success",
+                        message: "User profile Fetched successfully"
+                    })
                 }
                 else {
                     setShowModalError((prevError) => {
@@ -103,8 +116,16 @@ export default function User() {
         history.push("/login")
     }
 
+    function resetToast() {
+        setToast({
+            type: '',
+            message: ''
+        })
+    }
+
     function handleChange(event) {
         const {name, value, type, checked} = event.target
+        resetToast()
         setUser((prevForm => {
             return {
                 ...prevForm,
@@ -123,12 +144,18 @@ export default function User() {
         }
         RequestHandler(request_obj).then((result) => {
             if (result.success) {
-                // To Do: Render success message on the next page.
                 const userData = result.data;
                 setUser(userData);
+                setToast({
+                    type: "success",
+                    message: "Profile saved successfully"
+                })
             }
             else {
-                console.log("Getting in else.")
+                setToast({
+                    type: "error",
+                    message: result.data.toString() || 'Error in Fetching'
+                })
             }
             
         })
@@ -178,6 +205,11 @@ export default function User() {
                         message={showModalError.message}
                         header={showModalError.header}/>
         </div>
+        {
+                toast.type && 
+                <ToastNotify props={toast} />
+            }
+            <ToastContainer />
         </Fragment>
     )
 }

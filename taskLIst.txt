@@ -7,9 +7,11 @@ To Do List
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
 - Add further styling on the PartyPrint Page. [PRDEV-053]
 - Add validations to Fields in CreateParty and ViewParty. [PRDEV-057]
+- Figure out a cleaner way to reset Toast in user.js
+
 
 - Add Success/Error Modals to all pages:
-    -- Add the error Modal on PartyList and PartyDetail pages. [PRDEV-049]
+    
     -- User [PRDEV-058]
     -- Party Create [PRDEV-060]
     -- pages [PRDEV-061]
@@ -21,6 +23,7 @@ To Do List
     - Fix User page and signup page with AuthProvider [PRDEV-038]
     - View party page should contain the created by users header [PRDEV-046]
     - User page date not updating [PRDEV-063]
+    - Role field in User.js is not updating.
 
 
 - Convert all password inputs to password type fields [PRDEV-041]
@@ -85,6 +88,7 @@ Completed Tasks
 - Add Success/Error Modals to all pages:
     -- Create a common way to handle all errors while making fetch requests [PRDEV-011]
     -- Party Attended [PRDEV-059]
+    -- Add the error Modal on PartyList and PartyDetail pages. [PRDEV-049]
 
 
 
