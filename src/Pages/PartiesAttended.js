@@ -5,6 +5,8 @@ import { RequestHandler } from "../Helpers/RequestHandler"
 import AuthContext from "../Auth/authContext"
 import PartyPrint from "../components/PartyDetail"
 import "./Pages.css"
+import { ToastContainer } from 'react-toastify';
+import ToastNotify from "../Modal/ToastNotify"
 
 export default function PartyAttended() {
 
@@ -13,6 +15,11 @@ export default function PartyAttended() {
     const [data, setData] = useState(null);
 
     const [isLoading, setIsLoading] = useState(true);
+
+    const [toast, setToast] = useState({
+        type: '',
+        message: ''
+    })
 
     let partyElements;
 
@@ -25,13 +32,19 @@ export default function PartyAttended() {
         }
         RequestHandler(request_obj).then((result) => {
             if (result.success) {
-                // To Do: Render success message on the next page.
                 const partyData = result.data.data;
                 setData(partyData);
                 setIsLoading(false);
+                setToast({
+                    type: "success",
+                    message: "Fetched successfully"
+                })
             }
             else {
-                console.log("Getting in else.")
+                setToast({
+                    type: "error",
+                    message: result.data.toString() || 'Error in Fetching'
+                })
             }
             
         })
@@ -39,7 +52,6 @@ export default function PartyAttended() {
 
     if (!isLoading) {
         partyElements = data.map(party => {
-            console.log(party);
             const party_url = "/party-detail/" + party.id;
             return <NavLink className="clean_links" to={party_url}>
                 <PartyPrint 
@@ -57,6 +69,11 @@ export default function PartyAttended() {
             <div className="party_list_container">
                 {!isLoading && partyElements}
             </div>
+            {
+                toast.type && 
+                <ToastNotify props={toast} />
+            }
+            <ToastContainer />
         </Fragment>
     )
 }
