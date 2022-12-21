@@ -4,6 +4,9 @@ import { ErrorModal } from "../Modal/Error";
 import { Link, useHistory } from "react-router-dom"
 import * as urlConstants from "../constants/urls";
 import { RequestHandler } from "../Helpers/RequestHandler";
+import { ToastContainer } from 'react-toastify';
+import ToastNotify from "../Modal/ToastNotify"
+
 
 export default function SignupForm() {
     
@@ -17,10 +20,16 @@ export default function SignupForm() {
     })
 
     const [showError, setShowError] = React.useState(false)
+
     const [showModalError, setShowModalError] = React.useState({
         error: false,
         message: "",
         header: "Signup Error"
+    })
+
+    const [toast, setToast] = React.useState({
+        type: '',
+        message: ''
     })
 
     const history = useHistory();
@@ -67,9 +76,15 @@ export default function SignupForm() {
             }
             RequestHandler(request_obj).then((result) => {
                 if (result.success) {
-                    // To Do: Render success message on the next page.
                     console.log("User signed up successfully.");
-                    history.push('/login')
+                    setToast({
+                        type: "success",
+                        message: "User signed up successfully"
+                        })
+                        history.push({
+                            pathname: '/login',
+                            state: {toast: toast}
+                    });
                 }
                 else {
                     setShowModalError((prevError) => {
@@ -84,8 +99,11 @@ export default function SignupForm() {
             })
         }
         else {
-            // To Do: Convert this to error message
             console.log("Not submitting")
+            setToast({
+                type: "error",
+                message: 'Not submitting. Please try after sometime.'
+            })
         }
     }
 
@@ -132,6 +150,11 @@ export default function SignupForm() {
                 message={showModalError.message}
                 header={showModalError.header}/>
         </div>
+        {
+                toast.type && 
+                <ToastNotify props={toast} />
+            }
+            <ToastContainer />
         </div>
     )
 }

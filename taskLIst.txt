@@ -11,7 +11,7 @@ To Do List
 
 
 - Add Success/Error Modals to all pages:
-    -- pages [PRDEV-061]
+    -- SignupForm [PRDEV-061]
     -- Party List [PRDEV-062]
 
 
@@ -21,6 +21,7 @@ To Do List
     - View party page should contain the created by users header [PRDEV-046]
     - User page date not updating [PRDEV-063]
     - Role field in User.js is not updating.
+    - User page should pass on success toast info to Login page. 
 
 
 - Convert all password inputs to password type fields [PRDEV-041]
