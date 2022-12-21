@@ -5,6 +5,8 @@ import * as urlConstants from "../constants/urls";
 import { RequestHandler } from "../Helpers/RequestHandler";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { ToastContainer } from 'react-toastify';
+import ToastNotify from "../Modal/ToastNotify"
 
 
 export default function CreateParty() {
@@ -19,8 +21,8 @@ export default function CreateParty() {
         party_place: ""
     })
 
-    const [showError, setShowError] = React.useState({
-        error: false,
+    const [toast, setToast] = React.useState({
+        type: '',
         message: ''
     })
 
@@ -44,7 +46,19 @@ export default function CreateParty() {
             body: partyForm
         }
         RequestHandler(request_obj).then((result) => {
-            // To Do: Handle success and push to Detail page
+            if (result.success){
+            setToast({
+                type: "success",
+                message: "Party created successfully"
+                })
+            }
+            else {
+                setToast({
+                    type: "error",
+                    message: result.data.toString() || 'Error in Fetching'
+                })
+            }
+
         })
     }
 
@@ -75,13 +89,16 @@ export default function CreateParty() {
                     <input id="party_place" name="party_place" value={partyForm.party_place} onChange={handleChange} />
                     <br />
 
-                    {showError.error && <p className="form_error" id="form_error">{showError.message}</p>}
-
                     <br />
                     <br />
                     <button className="form_button">Create Party!</button>
                 </form>
             </div>
+            {
+                toast.type && 
+                <ToastNotify props={toast} />
+            }
+            <ToastContainer />
         </div>
     )
 }
