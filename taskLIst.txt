@@ -11,7 +11,6 @@ To Do List
 
 
 - Add Success/Error Modals to all pages:
-    -- Party Create [PRDEV-060]
     -- pages [PRDEV-061]
     -- Party List [PRDEV-062]
 
@@ -88,6 +87,7 @@ Completed Tasks
     -- Party Attended [PRDEV-059]
     -- Add the error Modal on PartyList and PartyDetail pages. [PRDEV-049]
     -- User [PRDEV-058]
+    -- Party Create [PRDEV-060]
 
 
 
