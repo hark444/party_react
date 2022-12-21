@@ -1,9 +1,14 @@
-import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { Fragment } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import AuthContext from "../Auth/authContext";
+import { ToastContainer } from 'react-toastify';
+import ToastNotify from "../Modal/ToastNotify"
 
 
 export default function LoginPage() {
+
+    const location = useLocation();
+    console.log(location)
 
     const ctx = React.useContext(AuthContext);
 
@@ -50,6 +55,14 @@ export default function LoginPage() {
                 </form>
                 <p className="not_sign_up">Not signed up? Sign up <Link to={'/sign-up'}>here</Link>. </p>
             </div>
+            {
+                location.state.toast && location.state.toast.type &&
+                <Fragment>
+                    <h2>Toast should be called</h2>
+                    <ToastNotify props={location.state.toast} />
+                    <ToastContainer />
+                </Fragment>
+            }
         </div>
     )
 }
