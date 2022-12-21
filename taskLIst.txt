@@ -11,8 +11,6 @@ To Do List
 
 
 - Add Success/Error Modals to all pages:
-    
-    -- User [PRDEV-058]
     -- Party Create [PRDEV-060]
     -- pages [PRDEV-061]
     -- Party List [PRDEV-062]
@@ -89,6 +87,7 @@ Completed Tasks
     -- Create a common way to handle all errors while making fetch requests [PRDEV-011]
     -- Party Attended [PRDEV-059]
     -- Add the error Modal on PartyList and PartyDetail pages. [PRDEV-049]
+    -- User [PRDEV-058]
 
 
 
