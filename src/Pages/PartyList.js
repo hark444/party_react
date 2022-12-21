@@ -32,7 +32,6 @@ export default function PartyList(props) {
         }
         RequestHandler(request_obj).then((result) => {
             if (result.success) {
-                // To Do: Render success message on the next page.
                 const partyData = result.data.data;
                 setData(partyData);
                 setIsLoading(false);
