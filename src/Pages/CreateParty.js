@@ -39,6 +39,7 @@ export default function CreateParty() {
     function handleSubmit(event) {
         event.preventDefault()
         validateForm()
+        console.log(partyForm)
         const request_obj = {
             url: urlConstants.PARTY,
             method: 'POST',
@@ -80,10 +81,13 @@ export default function CreateParty() {
                     <input id="guests_invited" name="guests_invited" value={partyForm.guests_invited} onChange={handleChange} />
                     <br />
                     <label htmlFor="proposed_date">Proposed Date </label>
-                    <DatePicker className="date_picker" selected={partyForm.proposed_date} onChange={handleChange} />
+                    {/* TODO: change onChange handler here. */}
+                    <DatePicker className="date_picker" selected={partyForm.proposed_date}
+                        onChange={(value) => {setPartyForm((prevForm)=>{return {...prevForm, proposed_date: value}})}} />
                     <br />
                     <label htmlFor="party_date">Party Date </label>
-                    <DatePicker className="date_picker" selected={partyForm.party_date} onChange={handleChange} />
+                    <DatePicker className="date_picker" selected={partyForm.party_date}
+                        onChange={(value) => {setPartyForm((prevForm)=>{return {...prevForm, party_date: value}})}}/>
                     <br />
                     <label htmlFor="party_place">Party Place</label>
                     <input id="party_place" name="party_place" value={partyForm.party_place} onChange={handleChange} />

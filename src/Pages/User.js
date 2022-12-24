@@ -136,6 +136,7 @@ export default function User() {
 
     function handleSubmit(event){
         event.preventDefault()
+        console.log(user)
         const request_obj = {
             url: urlConstants.USER,
             method: 'PUT',
@@ -186,7 +187,8 @@ export default function User() {
                     <input id="role" name="role" value={user.role} disabled={enableEdit.disable} onChange={handleChange}/>
                     <br />
                     <label htmlFor="date_of_joining">Date of Joining</label>
-                    <DatePicker name="date_of_joining" className="date_picker" selected={Date.parse(user.date_of_joining)} onChange={handleChange} disabled={enableEdit.disable}/>
+                    <DatePicker name="date_of_joining" className="date_picker" selected={Date.parse(user.date_of_joining)} disabled={enableEdit.disable}
+                        onChange={(value) => {setUser((prevForm)=>{return {...prevForm, date_of_joining: value}})}}/>
                     {/* <DatePicker name="date_of_joining" className="date_picker" selected={Date.parse(user.date_of_joining)} disabled={enableEdit.disable}/> */}
                     <br />
                     <Fragment>
