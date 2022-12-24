@@ -55,14 +55,14 @@ export default function LoginPage() {
                 </form>
                 <p className="not_sign_up">Not signed up? Sign up <Link to={'/sign-up'}>here</Link>. </p>
             </div>
-            {
+            {/* {
                 location.state.toast && location.state.toast.type &&
                 <Fragment>
                     <h2>Toast should be called</h2>
                     <ToastNotify props={location.state.toast} />
                     <ToastContainer />
                 </Fragment>
-            }
+            } */}
         </div>
     )
 }

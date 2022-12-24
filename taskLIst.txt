@@ -7,12 +7,7 @@ To Do List
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
 - Add further styling on the PartyPrint Page. [PRDEV-053]
 - Add validations to Fields in CreateParty and ViewParty. [PRDEV-057]
-- Figure out a cleaner way to reset Toast in user.js
-
-
-- Add Success/Error Modals to all pages:
-    -- SignupForm [PRDEV-061]
-    -- Party List [PRDEV-062]
+- Figure out a cleaner way to reset Toast in user.js [PRDEV-067]
 
 
 - Bugs: 
@@ -20,8 +15,8 @@ To Do List
     - Fix User page and signup page with AuthProvider [PRDEV-038]
     - View party page should contain the created by users header [PRDEV-046]
     - User page date not updating [PRDEV-063]
-    - Role field in User.js is not updating.
-    - User page should pass on success toast info to Login page. 
+    - Role field in User.js is not updating. [PRDEV-065]
+    - User page should pass on success toast info to Login page. [PRDEV-066]
 
 
 - Convert all password inputs to password type fields [PRDEV-041]
@@ -89,6 +84,8 @@ Completed Tasks
     -- Add the error Modal on PartyList and PartyDetail pages. [PRDEV-049]
     -- User [PRDEV-058]
     -- Party Create [PRDEV-060]
+    -- SignupForm [PRDEV-061]
+    -- Party List [PRDEV-062]
 
 
 
@@ -98,3 +95,12 @@ Completed Tasks
 - guests_invited && actual attendance in put.
 - your parties to my parties
 - home page: most rated party; pie-chart containing % parties per person; 
+- button for detail page
+- tabular format for party list page
+- shadow in header
+- show rating for each party at least to party creater
+- redux and rtk(for list caching, cache busting)
+- user and team -> group
+- notification on addition and rsvp
+- MUI
+- user average rating, for all parties.
