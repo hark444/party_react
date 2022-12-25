@@ -53,7 +53,7 @@ export default function PartyAttended() {
     if (!isLoading) {
         partyElements = data.map(party => {
             const party_url = "/party-detail/" + party.id;
-            return <NavLink className="clean_links" to={party_url}>
+            return <NavLink key={party.id} className="clean_links" to={party_url}>
                 <PartyPrint 
                 key={party.id}
                 props={party.party}

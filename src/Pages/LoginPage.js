@@ -36,29 +36,18 @@ export default function LoginPage() {
                 <div className="form_title">
                     <h2>Login</h2>
                 </div>
-                <form onSubmit={handleSubmit} className="form_form">
+                <form className="form_form">
                     
                     <label htmlFor="email">Email </label>
                     <input id="email" name="email" value={login.email} onChange={handleChange} />
                     <br />
                     <label htmlFor="password">Password </label>
                     <input id="password" name="password" value={login.password} onChange={handleChange} />
-                    <br />
-                    
-                    {/* <button className="form_button">Login</button> */}
-                    
+                    <br />                 
                     <ContainedButton submit={handleSubmit} >Login</ContainedButton>
                 </form>
                 <p className="not_sign_up">Not signed up? Sign up <Link to={'/sign-up'}>here</Link>. </p>
             </div>
-            {/* {
-                location.state.toast && location.state.toast.type &&
-                <Fragment>
-                    <h2>Toast should be called</h2>
-                    <ToastNotify props={location.state.toast} />
-                    <ToastContainer />
-                </Fragment>
-            } */}
         </div>
     )
 }

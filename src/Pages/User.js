@@ -1,14 +1,19 @@
 import { React, useEffect, useState, Fragment, useContext } from "react";
+import { useHistory, NavLink } from "react-router-dom"
+import { ToastContainer } from 'react-toastify';
+import DatePicker from "react-datepicker";
+
 import "./Pages.css"
 import { ErrorModal } from "../Modal/Error";
+import AuthContext from "../Auth/authContext";
+import ToastNotify from "../Modal/ToastNotify";
 import * as urlConstants from "../constants/urls";
 import EditButton from "../components/EditButton";
-import { useHistory, NavLink } from "react-router-dom"
-import DatePicker from "react-datepicker";
+import ContainedButton from "../components/Button";
 import { RequestHandler } from "../Helpers/RequestHandler";
-import AuthContext from "../Auth/authContext";
-import { ToastContainer } from 'react-toastify';
-import ToastNotify from "../Modal/ToastNotify"
+
+
+
 
 export default function User() {
 
@@ -136,6 +141,7 @@ export default function User() {
 
     function handleSubmit(event){
         event.preventDefault()
+        resetEdit()
         console.log(user)
         const request_obj = {
             url: urlConstants.USER,
@@ -173,7 +179,7 @@ export default function User() {
                 <hr />
             </div>
             <div className="profile--content">
-                <form onSubmit={handleSubmit} className="form_form">                    
+                <form className="form_form">                    
                     <label htmlFor="first_name">First Name</label>
                     <input id="first_name" name="first_name" value={user.first_name} disabled={enableEdit.disable} onChange={handleChange}/>
                     <br />
@@ -189,11 +195,10 @@ export default function User() {
                     <label htmlFor="date_of_joining">Date of Joining</label>
                     <DatePicker name="date_of_joining" className="date_picker" selected={Date.parse(user.date_of_joining)} disabled={enableEdit.disable}
                         onChange={(value) => {setUser((prevForm)=>{return {...prevForm, date_of_joining: value}})}}/>
-                    {/* <DatePicker name="date_of_joining" className="date_picker" selected={Date.parse(user.date_of_joining)} disabled={enableEdit.disable}/> */}
                     <br />
                     <Fragment>
                         <EditButton buttonText={enableEdit.buttonText} onClick={enableEditing}/>
-                        <button className="form_button" onClick={resetEdit}>Save</button>
+                        <ContainedButton submit={handleSubmit} >Save</ContainedButton>
                     </Fragment>
                     </form>
             </div>
