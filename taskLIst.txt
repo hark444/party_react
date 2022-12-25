@@ -7,7 +7,6 @@ To Do List
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
 - Add tabular listing on the Party List Page. [PRDEV-053]
 - Add validations to Fields in CreateParty and ViewParty. [PRDEV-057]
-- Update EditButton to use MUI button [PRDEV-069]
 - Look to add date range filter in Party Listting Page [PRDEV-068]
 - Fix sonarlint exceptions and warnings. [PRDEV-070]
 - Fix all imports [PRDEV-071]
@@ -20,6 +19,7 @@ To Do List
     - Toast missing on PartyDetail component. [PRDEV-072]
     - User.js: date is not updating . [PRDEV-073]
     - User.js date_of_joining should be a date field and not datetime field. [PRDEV-074]
+    - Toast missing in party detail. [PRDEV-075]
 
 
 - Convert all password inputs to password type fields [PRDEV-041]
@@ -95,6 +95,7 @@ Completed Tasks
     -- Fix User page and signup page with AuthProvider [PRDEV-038]
 - Introduction to MUI [PRDEV-066]
 - Create buttons using MUI [PRDEV-067]
+- Update EditButton to use MUI button [PRDEV-069]
 
 
 
@@ -105,7 +106,6 @@ Completed Tasks
 - your parties to my parties
 - home page: most rated party; pie-chart containing % parties per person; 
 - button for detail page
-- tabular format for party list page
 - shadow in header
 - show rating for each party at least to party creater
 - redux and rtk(for list caching, cache busting)
