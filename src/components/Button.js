@@ -9,5 +9,6 @@ export default function ContainedButton(props) {
             >
             {props.children}
         </Button>
+        // <button type="button" className="form_button" onClick={props.onClick}>{props.buttonText}</button>
     )
   }

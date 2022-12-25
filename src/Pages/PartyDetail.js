@@ -116,8 +116,9 @@ export default function PartyDetail(props) {
             {data && 
             <Fragment>
                 <PartyPrint key={0} props={data} showEdit={true}
-                paData={paData} handleChange={handleChange}
-                handleSubmit={handleSubmit}/>
+                        paData={paData} handleChange={handleChange}
+                        handleSubmit={handleSubmit}
+                />
             </Fragment>
             }
         </Fragment>
