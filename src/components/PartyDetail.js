@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import EditButton from "../components/EditButton"
+import ContainedButton from "../components/Button"
 
 export default function PartyPrint(props) {
     let party_rating;
@@ -38,10 +38,15 @@ export default function PartyPrint(props) {
         });
     }
 
+    function handleSubmit(event) {
+        resetEdit()
+        props.handleSubmit(event)
+    }
+
     return (
         <Fragment>
             <div className="card party_detail_container">
-                <form onSubmit={props.handleSubmit} className="form_form">
+                <form className="form_form">
                 <fieldset disabled="disabled" className="form_fieldset">
                     
                     <label htmlFor="party_name">Party Name</label>
@@ -78,8 +83,8 @@ export default function PartyPrint(props) {
                     }
                     {(props.paData || props.showEdit) && 
                     <Fragment>
-                        <EditButton buttonText={enableEdit.buttonText} onClick={enableEditing}/>
-                        <button className="form_button" onClick={resetEdit}>Save</button>
+                        <ContainedButton buttonText={enableEdit.buttonText} submit={enableEditing}>{enableEdit.buttonText}</ContainedButton>
+                        <ContainedButton submit={handleSubmit} >Save</ContainedButton>
                     </Fragment>
                     }
                 </form>

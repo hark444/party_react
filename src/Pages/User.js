@@ -8,7 +8,6 @@ import { ErrorModal } from "../Modal/Error";
 import AuthContext from "../Auth/authContext";
 import ToastNotify from "../Modal/ToastNotify";
 import * as urlConstants from "../constants/urls";
-import EditButton from "../components/EditButton";
 import ContainedButton from "../components/Button";
 import { RequestHandler } from "../Helpers/RequestHandler";
 
@@ -197,7 +196,7 @@ export default function User() {
                         onChange={(value) => {setUser((prevForm)=>{return {...prevForm, date_of_joining: value}})}}/>
                     <br />
                     <Fragment>
-                        <EditButton buttonText={enableEdit.buttonText} onClick={enableEditing}/>
+                        <ContainedButton submit={enableEditing} >{enableEdit.buttonText}</ContainedButton>
                         <ContainedButton submit={handleSubmit} >Save</ContainedButton>
                     </Fragment>
                     </form>
