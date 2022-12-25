@@ -10,6 +10,7 @@ const AuthContext = React.createContext({
     username: '',
     onLogout: () => {},
     access_token: '',
+    refreshToken: (token) => {},
 })
 
 export const AuthContextProvider = (props) => {
@@ -19,7 +20,7 @@ export const AuthContextProvider = (props) => {
         message: "",
         header: "Authentication Error"
     })
-    const [userName, setUserName] = React.useState('User')
+    const [userName, setUserName] = React.useState('')
     const [accessToken, setAccessToken] = React.useState('')
 
     function loginHandler(login) {
@@ -59,6 +60,37 @@ export const AuthContextProvider = (props) => {
         })
         window.location.assign('/login')
     }
+
+    function refreshToken(token) {
+        if (typeof token !== 'undefined'){
+        const request_obj = {
+            url: urlConstants.DEFINE_ME,
+            method: 'GET',
+            access_token: token
+        }
+        RequestHandler(request_obj).then((result) => {
+            if (result.success) {
+                setIsLoggedIn(true);
+                setUserName(result.data.first_name);
+                setAccessToken(token)
+            }
+            else {
+                setIsLoggedIn(false);
+                setShowModalError((prevError) => {
+                    return {
+                        ...prevError,
+                        error: true,
+                        message: result.data
+                    } 
+                })
+            }
+            
+        })
+    }
+    else {
+        sessionStorage.removeItem('access_token')
+    }
+    }
     
     function logoutHandler() {
         setIsLoggedIn(false)
@@ -72,7 +104,8 @@ export const AuthContextProvider = (props) => {
         onLogin: loginHandler,
         username: userName,
         onLogout: logoutHandler,
-        access_token: accessToken
+        access_token: accessToken,
+        refreshToken: refreshToken,
     }}>
         {props.children}
         <div className="error-modal">

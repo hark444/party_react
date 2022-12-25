@@ -1,4 +1,4 @@
-import { React, Fragment, useContext } from "react";
+import { React, Fragment, useContext, useEffect } from "react";
 import {NavLink} from "react-router-dom"
 import "./Header.css"
 import AuthContext from "../Auth/authContext";
@@ -6,6 +6,18 @@ import AuthContext from "../Auth/authContext";
 export default function Header() {
 
     const authCtx = useContext(AuthContext);
+    
+    useEffect(() => {
+        const token = sessionStorage.getItem('access_token');
+        if (sessionStorage.getItem("access_token") && authCtx.username==""){
+            if (typeof token !== 'undefined') {
+                authCtx.refreshToken(token)
+            }
+            else {
+                sessionStorage.removeItem('access_token')
+            }
+        }
+    }, [authCtx.access_token])
 
     return (
         <div className="header">
@@ -22,7 +34,7 @@ export default function Header() {
                 </ul>
             </div>
             <div className="header_user">
-                {authCtx.username !== 'User' && 
+                {authCtx.username !== '' && 
                 <Fragment>
                 <NavLink className="clean_links" activeClassName="active_clean_links" to="/user">
                     Hi, {authCtx.username}
@@ -31,7 +43,7 @@ export default function Header() {
                     Logout
                 </NavLink>
                 </Fragment>}
-                {authCtx.username === 'User' && <NavLink className="clean_links" activeClassName="active_clean_links" to="/login">
+                {authCtx.username === '' && <NavLink className="clean_links" activeClassName="active_clean_links" to="/login">
                     Login
                 </NavLink>}
             </div>
