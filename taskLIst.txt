@@ -5,16 +5,14 @@ To Do List
 - Create about page and Integrate its link on header. [PRDEV-034]
 - Create contact us page and Integrate its link on header. [PRDEV-035]
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
-- Add further styling on the PartyPrint Page. [PRDEV-053]
+- Add tabular listing on the Party List Page. [PRDEV-053]
 - Add validations to Fields in CreateParty and ViewParty. [PRDEV-057]
-- Figure out a cleaner way to reset Toast in user.js [PRDEV-067]
 
 
-- Bugs: 
+- Bugs:
     - User state is getting lost on page refresh. [PRDEV-028]
     - Fix User page and signup page with AuthProvider [PRDEV-038]
     - View party page should contain the created by users header [PRDEV-046]
-    - User page date not updating [PRDEV-063]
     - Role field in User.js is not updating. [PRDEV-065]
     - User page should pass on success toast info to Login page. [PRDEV-066]
 
@@ -86,6 +84,8 @@ Completed Tasks
     -- Party Create [PRDEV-060]
     -- SignupForm [PRDEV-061]
     -- Party List [PRDEV-062]
+- Bugs:
+    -- User page date not updating [PRDEV-063]
 
 
 

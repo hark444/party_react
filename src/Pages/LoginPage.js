@@ -8,7 +8,6 @@ import ToastNotify from "../Modal/ToastNotify"
 export default function LoginPage() {
 
     const location = useLocation();
-    console.log(location)
 
     const ctx = React.useContext(AuthContext);
 
