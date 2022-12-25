@@ -9,7 +9,7 @@ export default function Header() {
     
     useEffect(() => {
         const token = sessionStorage.getItem('access_token');
-        if (sessionStorage.getItem("access_token") && authCtx.username==""){
+        if (sessionStorage.getItem("access_token") && authCtx.username===""){
             if (typeof token !== 'undefined') {
                 authCtx.refreshToken(token)
             }
@@ -17,7 +17,7 @@ export default function Header() {
                 sessionStorage.removeItem('access_token')
             }
         }
-    }, [authCtx.access_token])
+    }, [authCtx])
 
     return (
         <div className="header">

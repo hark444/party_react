@@ -1,14 +1,9 @@
-import React, { Fragment } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
 import AuthContext from "../Auth/authContext";
-import { ToastContainer } from 'react-toastify';
-import ToastNotify from "../Modal/ToastNotify"
-
+import ContainedButton from "../components/Button"
 
 export default function LoginPage() {
-
-    const location = useLocation();
-
     const ctx = React.useContext(AuthContext);
 
     const history = useHistory();
@@ -50,7 +45,9 @@ export default function LoginPage() {
                     <input id="password" name="password" value={login.password} onChange={handleChange} />
                     <br />
                     
-                    <button className="form_button">Login</button>
+                    {/* <button className="form_button">Login</button> */}
+                    
+                    <ContainedButton submit={handleSubmit} >Login</ContainedButton>
                 </form>
                 <p className="not_sign_up">Not signed up? Sign up <Link to={'/sign-up'}>here</Link>. </p>
             </div>

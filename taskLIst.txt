@@ -7,11 +7,12 @@ To Do List
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
 - Add tabular listing on the Party List Page. [PRDEV-053]
 - Add validations to Fields in CreateParty and ViewParty. [PRDEV-057]
+- Introduction to MUI [PRDEV-066]
+- Create buttons using MUI [PRDEV-067]
+- Look to add date range filter in Party Listting Page [PRDEV-068]
 
 
 - Bugs:
-    - User state is getting lost on page refresh. [PRDEV-028]
-    - Fix User page and signup page with AuthProvider [PRDEV-038]
     - View party page should contain the created by users header [PRDEV-046]
     - Role field in User.js is not updating. [PRDEV-065]
     - User page should pass on success toast info to Login page. [PRDEV-066]
@@ -86,6 +87,8 @@ Completed Tasks
     -- Party List [PRDEV-062]
 - Bugs:
     -- User page date not updating [PRDEV-063]
+    -- User state is getting lost on page refresh. [PRDEV-028]
+    -- Fix User page and signup page with AuthProvider [PRDEV-038]
 
 
 
