@@ -1,12 +1,13 @@
 import React from "react";
+import { ToastContainer } from 'react-toastify';
+import { Link, useHistory } from "react-router-dom"
+
 import "./Pages.css"
 import { ErrorModal } from "../Modal/Error";
-import { Link, useHistory } from "react-router-dom"
+import ToastNotify from "../Modal/ToastNotify";
 import * as urlConstants from "../constants/urls";
+import ContainedButton from "../components/Button";
 import { RequestHandler } from "../Helpers/RequestHandler";
-import { ToastContainer } from 'react-toastify';
-import ToastNotify from "../Modal/ToastNotify"
-import ContainedButton from "../components/Button"
 
 
 export default function SignupForm() {

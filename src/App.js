@@ -1,16 +1,18 @@
-import Header from './components/Header';
-import SignupForm from './Pages/SignupForm';
-import LoginPage from './Pages/LoginPage';
-import HomePage from './Pages/HomePage';
-import User from './Pages/User';
-import CreateParty from './Pages/CreateParty';
-import PartyList from './Pages/PartyList';
-import PartyDetail from './Pages/PartyDetail';
-import PartyAttended from './Pages/PartiesAttended';
-import './App.css';
-import { Route, Switch } from 'react-router-dom';
 import React from 'react';
-import AuthContext from "../src/Auth/authContext"
+import { Route, Switch } from 'react-router-dom';
+
+import './App.css';
+import User from './Pages/User';
+import HomePage from './Pages/HomePage';
+import Header from './components/Header';
+import LoginPage from './Pages/LoginPage';
+import PartyList from './Pages/PartyList';
+import SignupForm from './Pages/SignupForm';
+import CreateParty from './Pages/CreateParty';
+import PartyDetail from './Pages/PartyDetail';
+import AuthContext from "../src/Auth/authContext";
+import PartyAttended from './Pages/PartiesAttended';
+
 
 function App() {
 

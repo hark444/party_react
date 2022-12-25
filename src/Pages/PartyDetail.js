@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useContext, useState, Fragment } from "react"
-import * as urlConstants from "../constants/urls"
-import { RequestHandler } from "../Helpers/RequestHandler"
-import AuthContext from "../Auth/authContext"
-import PartyPrint from "../components/PartyDetail"
+
 import "./Pages.css"
+import AuthContext from "../Auth/authContext"
+import * as urlConstants from "../constants/urls"
+import PartyPrint from "../components/PartyDetail"
+import { RequestHandler } from "../Helpers/RequestHandler"
 
 export default function PartyDetail(props) {
 
@@ -81,7 +82,6 @@ export default function PartyDetail(props) {
 
     function handleSubmit(event){
         event.preventDefault()
-        console.log("form submitted.")
         const request_obj = {
             url: urlConstants.PARTY_ATTENDED,
             body: paData,
