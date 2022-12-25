@@ -15,10 +15,6 @@ import AuthContext from "../src/Auth/authContext"
 function App() {
 
   const authCtx = React.useContext(AuthContext);
-
-  // If not logged in (access_token){
-    // 
-  // }
   
   return (
     <div>
