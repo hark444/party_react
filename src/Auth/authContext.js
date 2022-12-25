@@ -95,7 +95,7 @@ export const AuthContextProvider = (props) => {
     function logoutHandler() {
         setIsLoggedIn(false)
         sessionStorage.removeItem('access_token')
-        setUserName('User')
+        setUserName('')
     }
 
 

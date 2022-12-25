@@ -34,7 +34,7 @@ export default function Header() {
                 </ul>
             </div>
             <div className="header_user">
-                {authCtx.username !== '' && 
+                {authCtx.username !== '' &&
                 <Fragment>
                 <NavLink className="clean_links" activeClassName="active_clean_links" to="/user">
                     Hi, {authCtx.username}

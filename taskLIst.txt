@@ -7,9 +7,11 @@ To Do List
 - Add filters to 'View Parties' page for user and proposed date. [PRDEV-048]
 - Add tabular listing on the Party List Page. [PRDEV-053]
 - Add validations to Fields in CreateParty and ViewParty. [PRDEV-057]
-- Introduction to MUI [PRDEV-066]
 - Create buttons using MUI [PRDEV-067]
+- Update EditButton to use MUI button [PRDEV-069]
 - Look to add date range filter in Party Listting Page [PRDEV-068]
+- Fix sonarlint exceptions and warnings. [PRDEV-070]
+- Fix all imports [PRDEV-071]
 
 
 - Bugs:
@@ -89,6 +91,7 @@ Completed Tasks
     -- User page date not updating [PRDEV-063]
     -- User state is getting lost on page refresh. [PRDEV-028]
     -- Fix User page and signup page with AuthProvider [PRDEV-038]
+- Introduction to MUI [PRDEV-066]
 
 
 

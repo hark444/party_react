@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ToastContainer } from 'react-toastify';
 import ToastNotify from "../Modal/ToastNotify"
+import ContainedButton from "../components/Button"
 
 
 export default function CreateParty() {
@@ -73,7 +74,7 @@ export default function CreateParty() {
                 <div className="form_title">
                     <h2>Create a Party</h2>
                 </div>
-                <form onSubmit={handleSubmit} className="form_form">
+                <form className="form_form">
                     <label htmlFor="username">Name </label>
                     <input id="username" name="reason" value={partyForm.reason} onChange={handleChange} />
                     <br />
@@ -95,7 +96,7 @@ export default function CreateParty() {
 
                     <br />
                     <br />
-                    <button className="form_button">Create Party!</button>
+                    <ContainedButton submit={handleSubmit} >Create Party!</ContainedButton>
                 </form>
             </div>
             {
